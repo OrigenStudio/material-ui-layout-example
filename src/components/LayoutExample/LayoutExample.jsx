@@ -482,8 +482,7 @@ class LayoutExample extends React.Component {
                 </Grid>
               </Paper>
             </Grid>
-            <Grid item xs={0} sm={1} md={2} lg={3} />
-          </Grid>
+             </Grid>
         </div>
       </Layout>
     );
