@@ -12,9 +12,15 @@ import { withStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/Code';
 import React from 'react';
 import Layout, { BasicDrawer, BasicFooter } from 'material-ui-layout';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
 import SyntaxShow from '../SyntaxShow';
+import ControlSection from '../ControlSection';
 
 import styles from './styles';
 
@@ -47,17 +53,13 @@ class LayoutExample extends React.Component {
       leftDrawerOpen: false,
       rightDrawerType: undefined,
       rightDrawerOpen: false,
-      appBarContentType: 'Simple',
+      appBarContentType: 'simple',
       mainGrow: false,
       stickyFooter: false,
     };
   }
-  setappBarSimple = appBarContentType => {
-    this.setState({ appBarContentType: 'Simple' });
-  };
-
-  setappBarDoubles = appBarContentType => {
-    this.setState({ appBarContentType: 'Double' });
+  handleAppBarTypeChange = event => {
+    this.setState({ appBarContentType: event.target.value });
   };
 
   setTemporarydrawer = leftDrawerType => {
@@ -116,17 +118,16 @@ class LayoutExample extends React.Component {
   };
 
   render() {
-    // Calcs for renders
-
+    const { classes } = this.props;
     return (
       <Layout
         mainGrow={this.state.mainGrow === false ? false : true}
         stickyFooter={this.state.stickyFooter === false ? false : true}
         usingTwoRowAppBar={
-          this.state.appBarContentType === 'Simple' ? false : true
+          this.state.appBarContentType === 'double' ? true : false
         }
         appBarContent={
-          this.state.appBarContentType === 'Simple' ? (
+          this.state.appBarContentType === 'simple' ? (
             <AppBarSimple
               title={variables.title}
               links={links}
@@ -160,69 +161,32 @@ class LayoutExample extends React.Component {
         rightDrawerOpen={this.state.rightDrawerOpen}
         onRightDrawerOpenChange={this.setRightDrawerState}
       >
-        <div className={this.props.classes.wrapper}>
-          <Grid container>
+        <div className={classes.wrapper}>
+          <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={10} md={8} lg={6}>
-              <Paper style={{ marginTop: 50, marginBottom: 50 }}>
-                <Grid
-                  container
-                  style={{
-                    paddingBottom: 50,
-                    paddingTop: 50,
-                    paddingLeft: 100,
-                    paddingRight: 50,
-                  }}
-                >
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Typography type="headline" gutterBottom>
-                      AppBar
-                    </Typography>
-                    <div style={{ paddingLeft: 150 }} />
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={6} lg={6}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
+              <Paper className={classes.paper}>
+                <Grid container>
+                  <ControlSection sectionTitle="AppBar">
+                    <FormControl>
+                      <FormLabel>AppBar type</FormLabel>
+                      <RadioGroup
+                        row
+                        value={this.state.appBarContentType}
+                        onChange={this.handleAppBarTypeChange}
                       >
-                        Simple AppBar
-                      </Typography>
-                      <Radio
-                        checked={this.state.appBarContentType === 'Simple'}
-                        onChange={this.setappBarSimple}
-                        value="Simple"
-                        name="radio button demo"
-                        aria-label="D"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={6} lg={6}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        Double AppBar
-                      </Typography>
-                      <Radio
-                        checked={this.state.appBarContentType === 'Double'}
-                        onChange={this.setappBarDoubles}
-                        value="Double"
-                        name="radio button demo"
-                        aria-label="E"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Divider
-                    light
-                    style={{
-                      maxWidth: '757px',
-                      width: '100%',
-                      backgroundColor: '#DFDFDF',
-                    }}
-                  />
+                        <FormControlLabel
+                          value="simple"
+                          control={<Radio />}
+                          label="Simple AppBar"
+                        />
+                        <FormControlLabel
+                          value="double"
+                          control={<Radio />}
+                          label="Double AppBar"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </ControlSection>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Grid container style={{ paddingTop: 20 }}>
                       <Typography
@@ -472,7 +436,7 @@ class LayoutExample extends React.Component {
                     </Grid>
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ExpansionPanel className={this.props.classes.panelCode}>
+                    <ExpansionPanel className={classes.panelCode}>
                       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} />
                       <ExpansionPanelDetails>
                         <SyntaxShow gettingState={this.state} />
@@ -482,7 +446,7 @@ class LayoutExample extends React.Component {
                 </Grid>
               </Paper>
             </Grid>
-             </Grid>
+          </Grid>
         </div>
       </Layout>
     );
