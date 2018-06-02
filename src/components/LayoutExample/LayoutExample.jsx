@@ -233,7 +233,7 @@ class LayoutExample extends React.Component {
                         Drawer Left
                       </Typography>
                       <Button
-                        raised
+                        variant="raised"
                         color="primary"
                         disabled={
                           this.state.leftDrawerType === 'permanent'
@@ -328,7 +328,7 @@ class LayoutExample extends React.Component {
                         Drawer Right
                       </Typography>
                       <Button
-                        raised
+                        variant="raised"
                         color="primary"
                         disabled={
                           this.state.rightDrawerType === 'permanent'
