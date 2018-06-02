@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/Code';
 import React from 'react';
-import Layout, { BasicDrawer, BasicFooter } from '../../../../src';
+import Layout, { BasicDrawer, BasicFooter } from 'material-ui-layout';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
 import SyntaxShow from '../SyntaxShow';

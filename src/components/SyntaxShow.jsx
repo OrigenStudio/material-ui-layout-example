@@ -4,11 +4,9 @@ import { prism } from 'react-syntax-highlighter/styles/prism';
 import AppBarSimple from '../components/AppBarSimple';
 import AppBarDouble from '../components/AppBarDouble';
 import {
-  TwoRowsAppBar,
-} from '../../../src';
-import {
-  BasicAppBar,
-}  from '../../../src';
+  TwoRowsAppBar, BasicAppBar
+} from 'material-ui-layout';
+
 
 
 
