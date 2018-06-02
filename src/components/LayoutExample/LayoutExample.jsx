@@ -16,6 +16,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
@@ -49,9 +50,9 @@ class LayoutExample extends React.Component {
     super(props);
 
     this.state = {
-      leftDrawerType: undefined,
+      leftDrawerType: 'temporary',
       leftDrawerOpen: false,
-      rightDrawerType: undefined,
+      rightDrawerType: 'temporary',
       rightDrawerOpen: false,
       appBarContentType: 'simple',
       mainGrow: false,
@@ -62,14 +63,8 @@ class LayoutExample extends React.Component {
     this.setState({ appBarContentType: event.target.value });
   };
 
-  setTemporarydrawer = leftDrawerType => {
-    this.setState({ leftDrawerType: 'temporary' });
-  };
-  setPersistentdrawer = leftDrawerType => {
-    this.setState({ leftDrawerType: 'persistent' });
-  };
-  setPermanentdrawer = leftDrawerType => {
-    this.setState({ leftDrawerType: 'permanent' });
+  handleLeftDrawerChange = event => {
+    this.setState({ leftDrawerType: event.target.value });
   };
 
   toggleLeftDrawer = () => {
@@ -77,20 +72,14 @@ class LayoutExample extends React.Component {
       leftDrawerOpen: !this.state.leftDrawerOpen,
     });
   };
-
   setLeftDrawerState = leftDrawerState => {
     this.setState({
       leftDrawerOpen: leftDrawerState,
     });
   };
-  setRightTemporarydrawer = rightDrawerType => {
-    this.setState({ rightDrawerType: 'temporary' });
-  };
-  setRightPersistentdrawer = rightDrawerType => {
-    this.setState({ rightDrawerType: 'persistent' });
-  };
-  setRightPermanentdrawer = rightDrawerType => {
-    this.setState({ rightDrawerType: 'permanent' });
+
+  handleRightDrawerChange = event => {
+    this.setState({ leftDrawerType: event.target.value });
   };
 
   toggleRightDrawer = () => {
@@ -105,13 +94,13 @@ class LayoutExample extends React.Component {
     });
   };
 
-  toogleMainGrow = () => {
+  toggleMainGrow = () => {
     this.setState({
       mainGrow: !this.state.mainGrow,
     });
   };
 
-  toogleStickyFooter = () => {
+  toggleStickyFooter = () => {
     this.setState({
       stickyFooter: !this.state.stickyFooter,
     });
@@ -153,6 +142,7 @@ class LayoutExample extends React.Component {
             links={links}
           />
         }
+        leftDrawerContent={<BasicDrawer links={links} />}
         leftDrawerType={this.state.leftDrawerType}
         leftDrawerOpen={this.state.leftDrawerOpen}
         onLeftDrawerOpenChange={this.setLeftDrawerState}
@@ -187,243 +177,112 @@ class LayoutExample extends React.Component {
                       </RadioGroup>
                     </FormControl>
                   </ControlSection>
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container style={{ paddingTop: 20 }}>
-                      <Typography
-                        type="headline"
-                        gutterBottom
-                        style={{ maxWidth: 200 }}
-                      >
-                        Drawer Left
-                      </Typography>
+                  <ControlSection
+                    sectionTitle="Left Drawer"
+                    topRightElement={
                       <Button
                         variant="raised"
+                        onClick={this.toggleLeftDrawer}
                         color="primary"
                         disabled={
                           this.state.leftDrawerType === 'permanent'
                             ? true
                             : false
                         }
-                        onClick={this.toggleLeftDrawer}
-                        aria-label="I"
-                        style={{ marginLeft: 46 }}
                       >
-                        {this.state.leftDrawerOpen === true ? (
-                          <Typography type="subheadline" gutterBottom>
-                            Close
-                          </Typography>
-                        ) : (
-                          <Typography type="subheadline" gutterBottom>
-                            Open
-                          </Typography>
-                        )}
+                        {this.state.leftDrawerOpen === true ? 'Close' : 'Open'}
                       </Button>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
+                    }
+                  >
+                    <FormControl>
+                      <FormLabel>Drawer type</FormLabel>
+                      <RadioGroup
+                        row
+                        value={this.state.leftDrawerType}
+                        onChange={this.handleLeftDrawerChange}
                       >
-                        Temporary
-                      </Typography>
-                      <Radio
-                        checked={this.state.leftDrawerType === 'temporary'}
-                        onChange={this.setTemporarydrawer}
-                        value="temporary"
-                        name="radio button demo"
-                        aria-label="A"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        Persistent
-                      </Typography>
-                      <Radio
-                        checked={this.state.leftDrawerType === 'persistent'}
-                        onChange={this.setPersistentdrawer}
-                        value="persistent"
-                        name="radio button demo"
-                        aria-label="B"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        Permanent
-                      </Typography>
-                      <Radio
-                        checked={this.state.leftDrawerType === 'permanent'}
-                        onChange={this.setPermanentdrawer}
-                        value="permanent"
-                        name="radio button demo"
-                        aria-label="C"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Divider
-                    light
-                    style={{
-                      maxWidth: '757px',
-                      width: '100%',
-                      backgroundColor: '#DFDFDF',
-                    }}
-                  />
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container style={{ paddingTop: 20 }}>
-                      <Typography
-                        type="headline"
-                        gutterBottom
-                        style={{ maxWidth: 200 }}
-                      >
-                        Drawer Right
-                      </Typography>
+                        <FormControlLabel
+                          value="temporary"
+                          control={<Radio />}
+                          label="Temporary"
+                        />
+                        <FormControlLabel
+                          value="persistent"
+                          control={<Radio />}
+                          label="Persistent"
+                        />
+                        <FormControlLabel
+                          value="permanent"
+                          control={<Radio />}
+                          label="Permanent"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </ControlSection>
+                  <ControlSection
+                    sectionTitle="Right Drawer"
+                    topRightElement={
                       <Button
                         variant="raised"
+                        onClick={this.toggleRightDrawer}
                         color="primary"
                         disabled={
                           this.state.rightDrawerType === 'permanent'
                             ? true
                             : false
                         }
-                        onClick={this.toggleRightDrawer}
-                        aria-label="I"
-                        style={{ marginLeft: 30 }}
                       >
-                        {this.state.rightDrawerOpen === true ? (
-                          <Typography type="subheadline" gutterBottom>
-                            Close
-                          </Typography>
-                        ) : (
-                          <Typography type="subheadline" gutterBottom>
-                            Open
-                          </Typography>
-                        )}
+                        {this.state.rightDrawerOpen === true ? 'Close' : 'Open'}
                       </Button>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
+                    }
+                  >
+                    <FormControl>
+                      <FormLabel>Drawer type</FormLabel>
+                      <RadioGroup
+                        row
+                        value={this.state.rightDrawerType}
+                        onChange={this.handleRightDrawerChange}
                       >
-                        Temporary
-                      </Typography>
-                      <Radio
-                        checked={this.state.rightDrawerType === 'temporary'}
-                        onChange={this.setRightTemporarydrawer}
-                        value="temporary"
-                        name="radio button demo"
-                        aria-label="F"
+                        <FormControlLabel
+                          value="temporary"
+                          control={<Radio />}
+                          label="Temporary"
+                        />
+                        <FormControlLabel
+                          value="persistent"
+                          control={<Radio />}
+                          label="Persistent"
+                        />
+                        <FormControlLabel
+                          value="permanent"
+                          control={<Radio />}
+                          label="Permanent"
+                        />
+                      </RadioGroup>
+                    </FormControl>
+                  </ControlSection>
+                  <ControlSection sectionTitle="Layout Properties">
+                    <FormGroup row>
+                      <FormControlLabel
+                        label="mainGrow"
+                        control={
+                          <Switch
+                            checked={this.state.mainGrow}
+                            onChange={this.toggleMainGrow}
+                          />
+                        }
                       />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        Persistent
-                      </Typography>
-                      <Radio
-                        checked={this.state.rightDrawerType === 'persistent'}
-                        onChange={this.setRightPersistentdrawer}
-                        value="persistent"
-                        name="radio button demo"
-                        aria-label="G"
+                      <FormControlLabel
+                        label="stickyFooter"
+                        control={
+                          <Switch
+                            checked={this.state.stickyFooter}
+                            onChange={this.toggleStickyFooter}
+                          />
+                        }
                       />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        Permanent
-                      </Typography>
-                      <Radio
-                        checked={this.state.rightDrawerType === 'permanent'}
-                        onChange={this.setRightPermanentdrawer}
-                        value="permanent"
-                        name="radio button demo"
-                        aria-label="H"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Divider
-                    light
-                    style={{
-                      maxWidth: '757px',
-                      width: '100%',
-                      backgroundColor: '#DFDFDF',
-                    }}
-                  />
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container style={{ paddingTop: 20 }}>
-                      <Typography type="headline" gutterBottom>
-                        Layout Properties
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        mainGrow
-                      </Typography>
-                      <Switch
-                        checked={this.state.mainGrow}
-                        onChange={this.toogleMainGrow}
-                        aria-label="I"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <Grid container style={{ paddingBottom: 20 }}>
-                      <Typography
-                        type="body2"
-                        gutterBottom
-                        style={{ marginTop: 10 }}
-                      >
-                        stickyFooter
-                      </Typography>
-                      <Switch
-                        checked={this.state.stickyFooter}
-                        onChange={this.toogleStickyFooter}
-                        aria-label="I"
-                      />
-                    </Grid>
-                  </Grid>
-                  <Divider
-                    light
-                    style={{
-                      maxWidth: '757px',
-                      width: '100%',
-                      backgroundColor: '#DFDFDF',
-                    }}
-                  />
+                    </FormGroup>
+                  </ControlSection>
                   <Grid item xs={12} sm={12} md={12} lg={12}>
                     <Grid container style={{ paddingTop: 20 }}>
                       <Typography
