@@ -9,7 +9,7 @@ import Radio from '@material-ui/core/Radio';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import ExpandMoreIcon from '@material-ui/icons/Code';
+import CodeIcon from '@material-ui/icons/Code';
 import React from 'react';
 import Layout, { BasicDrawer, BasicFooter } from 'material-ui-layout';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -18,12 +18,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
 import SyntaxShow from '../SyntaxShow';
 import ControlSection from '../ControlSection';
 
 import LayoutController from '../LayoutController';
+import LandingSection from '../LandingSection';
 
 import styles from './styles';
 
@@ -58,7 +60,7 @@ class LayoutExample extends React.Component {
       rightDrawerOpen: false,
       appBarContentType: 'simple',
       mainGrow: false,
-      stickyFooter: false,
+      stickyFooter: true,
     };
   }
   handleAppBarTypeChange = event => {
@@ -156,40 +158,55 @@ class LayoutExample extends React.Component {
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={10} md={8} lg={6}>
-              <Paper className={classes.paper}>
-                <LayoutController
-                  {...this.state}
-                  handleAppBarTypeChange={this.handleAppBarTypeChange}
-                  handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
-                  onLeftDrawerOpenChange={this.setLeftDrawerState}
-                  handleRightDrawerTypeChange={this.handleRightDrawerTypeChange}
-                  onRightDrawerOpenChange={this.setRightDrawerState}
-                  toggleMainGrow={this.toggleMainGrow}
-                  toggleStickyFooter={this.toggleStickyFooter}
-                />
-
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <Grid container style={{ paddingTop: 20 }}>
-                    <Typography
-                      type="headline"
-                      gutterBottom
-                      style={{ maxWidth: 200 }}
-                    >
-                      Source Code
-                    </Typography>
+              {/* <Paper className={classes.paper}> */}
+              <LandingSection />
+              <ExpansionPanel>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Grid container>
+                    <Grid item xs={6}>
+                      <Typography variant="title">Layout Controller</Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography variant="subheading">
+                        Play with me! 🕹️
+                      </Typography>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12}>
-                  <ExpansionPanel className={classes.panelCode}>
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} />
-                    <ExpansionPanelDetails>
-                      Test
-                      {/* <SyntaxShow gettingState={this.state} /> */}
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                </Grid>
-              </Paper>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <LayoutController
+                    {...this.state}
+                    handleAppBarTypeChange={this.handleAppBarTypeChange}
+                    handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
+                    onLeftDrawerOpenChange={this.setLeftDrawerState}
+                    handleRightDrawerTypeChange={
+                      this.handleRightDrawerTypeChange
+                    }
+                    onRightDrawerOpenChange={this.setRightDrawerState}
+                    toggleMainGrow={this.toggleMainGrow}
+                    toggleStickyFooter={this.toggleStickyFooter}
+                  />
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <ExpansionPanel>
+                <ExpansionPanelSummary expandIcon={<CodeIcon />}>
+                  <Grid container>
+                    <Grid item xs={6}>
+                      <Typography variant="title">
+                        Live Code Examples
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography variant="subheading">Show me 💻</Typography>
+                    </Grid>
+                  </Grid>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <SyntaxShow gettingState={this.state} />
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
             </Grid>
+            {/* </Paper> */}
           </Grid>
         </div>
       </Layout>
