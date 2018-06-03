@@ -25,6 +25,8 @@ import ControlSection from '../ControlSection';
 
 import LayoutController from '../LayoutController';
 
+import styles from './styles';
+
 const links = [
   {
     href: 'https://material-ui-next.com/',
@@ -107,6 +109,7 @@ class LayoutExample extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <Layout
         mainGrow={this.state.mainGrow === false ? false : true}
@@ -150,22 +153,51 @@ class LayoutExample extends React.Component {
         rightDrawerOpen={this.state.rightDrawerOpen}
         onRightDrawerOpenChange={this.setRightDrawerState}
       >
-        <LayoutController
-          {...this.state}
-          handleAppBarTypeChange={this.handleAppBarTypeChange}
-          handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
-          onLeftDrawerOpenChange={this.setLeftDrawerState}
-          handleRightDrawerTypeChange={this.handleRightDrawerTypeChange}
-          onRightDrawerOpenChange={this.setRightDrawerState}
-          toggleMainGrow={this.toggleMainGrow}
-          toggleStickyFooter={this.toggleStickyFooter}
-        />
+        <div className={classes.wrapper}>
+          <Grid container justify="center" alignContent="center">
+            <Grid item xs={12} sm={10} md={8} lg={6}>
+              <Paper className={classes.paper}>
+                <LayoutController
+                  {...this.state}
+                  handleAppBarTypeChange={this.handleAppBarTypeChange}
+                  handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
+                  onLeftDrawerOpenChange={this.setLeftDrawerState}
+                  handleRightDrawerTypeChange={this.handleRightDrawerTypeChange}
+                  onRightDrawerOpenChange={this.setRightDrawerState}
+                  toggleMainGrow={this.toggleMainGrow}
+                  toggleStickyFooter={this.toggleStickyFooter}
+                />
+
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  <Grid container style={{ paddingTop: 20 }}>
+                    <Typography
+                      type="headline"
+                      gutterBottom
+                      style={{ maxWidth: 200 }}
+                    >
+                      Source Code
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  <ExpansionPanel className={classes.panelCode}>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} />
+                    <ExpansionPanelDetails>
+                      Test
+                      {/* <SyntaxShow gettingState={this.state} /> */}
+                    </ExpansionPanelDetails>
+                  </ExpansionPanel>
+                </Grid>
+              </Paper>
+            </Grid>
+          </Grid>
+        </div>
       </Layout>
     );
   }
 }
 
-export default withStyles()(LayoutExample);
+export default withStyles(styles)(LayoutExample);
 
 export const query = graphql`
   query LayoutQuery {
