@@ -23,7 +23,7 @@ import AppBarSimple from '../AppBarSimple';
 import SyntaxShow from '../SyntaxShow';
 import ControlSection from '../ControlSection';
 
-import styles from './styles';
+import LayoutController from '../LayoutController';
 
 const links = [
   {
@@ -63,7 +63,7 @@ class LayoutExample extends React.Component {
     this.setState({ appBarContentType: event.target.value });
   };
 
-  handleLeftDrawerChange = event => {
+  handleLeftDrawerTypeChange = event => {
     this.setState({ leftDrawerType: event.target.value });
   };
 
@@ -78,7 +78,7 @@ class LayoutExample extends React.Component {
     });
   };
 
-  handleRightDrawerChange = event => {
+  handleRightDrawerTypeChange = event => {
     this.setState({ leftDrawerType: event.target.value });
   };
 
@@ -107,7 +107,6 @@ class LayoutExample extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
     return (
       <Layout
         mainGrow={this.state.mainGrow === false ? false : true}
@@ -151,168 +150,22 @@ class LayoutExample extends React.Component {
         rightDrawerOpen={this.state.rightDrawerOpen}
         onRightDrawerOpenChange={this.setRightDrawerState}
       >
-        <div className={classes.wrapper}>
-          <Grid container justify="center" alignContent="center">
-            <Grid item xs={12} sm={10} md={8} lg={6}>
-              <Paper className={classes.paper}>
-                <Grid container>
-                  <ControlSection sectionTitle="AppBar">
-                    <FormControl>
-                      <FormLabel>AppBar type</FormLabel>
-                      <RadioGroup
-                        row
-                        value={this.state.appBarContentType}
-                        onChange={this.handleAppBarTypeChange}
-                      >
-                        <FormControlLabel
-                          value="simple"
-                          control={<Radio />}
-                          label="Simple AppBar"
-                        />
-                        <FormControlLabel
-                          value="double"
-                          control={<Radio />}
-                          label="Double AppBar"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </ControlSection>
-                  <ControlSection
-                    sectionTitle="Left Drawer"
-                    topRightElement={
-                      <Button
-                        variant="raised"
-                        onClick={this.toggleLeftDrawer}
-                        color="primary"
-                        disabled={
-                          this.state.leftDrawerType === 'permanent'
-                            ? true
-                            : false
-                        }
-                      >
-                        {this.state.leftDrawerOpen === true ? 'Close' : 'Open'}
-                      </Button>
-                    }
-                  >
-                    <FormControl>
-                      <FormLabel>Drawer type</FormLabel>
-                      <RadioGroup
-                        row
-                        value={this.state.leftDrawerType}
-                        onChange={this.handleLeftDrawerChange}
-                      >
-                        <FormControlLabel
-                          value="temporary"
-                          control={<Radio />}
-                          label="Temporary"
-                        />
-                        <FormControlLabel
-                          value="persistent"
-                          control={<Radio />}
-                          label="Persistent"
-                        />
-                        <FormControlLabel
-                          value="permanent"
-                          control={<Radio />}
-                          label="Permanent"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </ControlSection>
-                  <ControlSection
-                    sectionTitle="Right Drawer"
-                    topRightElement={
-                      <Button
-                        variant="raised"
-                        onClick={this.toggleRightDrawer}
-                        color="primary"
-                        disabled={
-                          this.state.rightDrawerType === 'permanent'
-                            ? true
-                            : false
-                        }
-                      >
-                        {this.state.rightDrawerOpen === true ? 'Close' : 'Open'}
-                      </Button>
-                    }
-                  >
-                    <FormControl>
-                      <FormLabel>Drawer type</FormLabel>
-                      <RadioGroup
-                        row
-                        value={this.state.rightDrawerType}
-                        onChange={this.handleRightDrawerChange}
-                      >
-                        <FormControlLabel
-                          value="temporary"
-                          control={<Radio />}
-                          label="Temporary"
-                        />
-                        <FormControlLabel
-                          value="persistent"
-                          control={<Radio />}
-                          label="Persistent"
-                        />
-                        <FormControlLabel
-                          value="permanent"
-                          control={<Radio />}
-                          label="Permanent"
-                        />
-                      </RadioGroup>
-                    </FormControl>
-                  </ControlSection>
-                  <ControlSection sectionTitle="Layout Properties">
-                    <FormGroup row>
-                      <FormControlLabel
-                        label="mainGrow"
-                        control={
-                          <Switch
-                            checked={this.state.mainGrow}
-                            onChange={this.toggleMainGrow}
-                          />
-                        }
-                      />
-                      <FormControlLabel
-                        label="stickyFooter"
-                        control={
-                          <Switch
-                            checked={this.state.stickyFooter}
-                            onChange={this.toggleStickyFooter}
-                          />
-                        }
-                      />
-                    </FormGroup>
-                  </ControlSection>
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <Grid container style={{ paddingTop: 20 }}>
-                      <Typography
-                        type="headline"
-                        gutterBottom
-                        style={{ maxWidth: 200 }}
-                      >
-                        Source Code
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <ExpansionPanel className={classes.panelCode}>
-                      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} />
-                      <ExpansionPanelDetails>
-                        <SyntaxShow gettingState={this.state} />
-                      </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                  </Grid>
-                </Grid>
-              </Paper>
-            </Grid>
-          </Grid>
-        </div>
+        <LayoutController
+          {...this.state}
+          handleAppBarTypeChange={this.handleAppBarTypeChange}
+          handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
+          onLeftDrawerOpenChange={this.setLeftDrawerState}
+          handleRightDrawerTypeChange={this.handleRightDrawerTypeChange}
+          onRightDrawerOpenChange={this.setRightDrawerState}
+          toggleMainGrow={this.toggleMainGrow}
+          toggleStickyFooter={this.toggleStickyFooter}
+        />
       </Layout>
     );
   }
 }
 
-export default withStyles(styles)(LayoutExample);
+export default withStyles()(LayoutExample);
 
 export const query = graphql`
   query LayoutQuery {
