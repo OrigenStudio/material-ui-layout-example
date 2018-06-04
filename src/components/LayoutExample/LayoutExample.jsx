@@ -1,33 +1,22 @@
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Radio from '@material-ui/core/Radio';
-import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import CodeIcon from '@material-ui/icons/Code';
-import React from 'react';
-import Layout, { BasicDrawer, BasicFooter } from 'material-ui-layout';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Layout, { BasicDrawer } from 'material-ui-layout';
+import React from 'react';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
-import SyntaxShow from '../SyntaxShow';
-import ControlSection from '../ControlSection';
-
-import LayoutController from '../LayoutController';
+import Footer from '../Footer';
 import LandingSection from '../LandingSection';
-
+import LayoutController from '../LayoutController';
+import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
+
+
 
 const links = [
   {
@@ -138,14 +127,7 @@ class LayoutExample extends React.Component {
             />
           )
         }
-        footerContent={
-          <BasicFooter
-            title={variables.title}
-            smallMessage={variables.smallMessage}
-            bigMessage="Demo"
-            links={links}
-          />
-        }
+        footerContent={<Footer />}
         footerProps={{ color: 'secondary' }}
         leftDrawerContent={<BasicDrawer links={links} />}
         leftDrawerType={this.state.leftDrawerType}
