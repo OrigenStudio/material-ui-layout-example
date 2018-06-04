@@ -18,11 +18,6 @@ import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
 import RightDrawerContent from '../RightDrawerContent';
 
-// TODO this need to go out
-const variables = {
-  title: 'Material-UI-Layout-Demo',
-};
-
 class LayoutExample extends React.Component {
   constructor(props) {
     super(props);
@@ -98,7 +93,7 @@ class LayoutExample extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, title } = this.props;
     return (
       <Layout
         mainGrow={this.state.mainGrow === false ? false : true}
@@ -109,14 +104,14 @@ class LayoutExample extends React.Component {
         appBarContent={
           this.state.appBarContentType === 'simple' ? (
             <AppBarSimple
-              title={variables.title}
+              title={title}
               links={links}
               toggleLeftDrawer={this.toggleLeftDrawer}
               toggleRightDrawer={this.toggleRightDrawer}
             />
           ) : (
             <AppBarDouble
-              title={variables.title}
+              title={title}
               toggleLeftDrawer={this.toggleLeftDrawer}
               toggleRightDrawer={this.toggleRightDrawer}
             />
