@@ -9,7 +9,7 @@ export default (theme: Object): Object => ({
   },
   image: {
     width: '70%',
-    maxWidth: '300px',
+    maxWidth: '200px',
     height: 'auto',
   },
   text: {

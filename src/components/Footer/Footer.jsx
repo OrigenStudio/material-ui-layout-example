@@ -17,10 +17,16 @@ type Props = {
 class Footer extends React.PureComponent<Props> {
   render() {
     return (
-      <Grid container alignItems="flex-end" justify="space-around" spacing={16}>
+      <Grid
+        container
+        alignItems="flex-end"
+        justify="space-around"
+        spacing={16}
+        className={this.props.classes.wrapper}
+      >
         <Grid item xs={12} md={4} className={this.props.classes.text}>
           <Typography variant="title" color="inherit" gutterBottom>
-            😎 Easy Layouts 🤓
+            Easy Layouts
           </Typography>
           <Typography variant="subheading" color="inherit">
             Made with ❤️ by <a href="https://origen.studio">Origen Studio</a>

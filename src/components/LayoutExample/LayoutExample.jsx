@@ -17,11 +17,6 @@ import LayoutController from '../LayoutController';
 import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
 
-
-
-
-
-
 // TODO this need to go out
 const variables = {
   title: 'Material-UI-Layout-Demo',
@@ -120,8 +115,12 @@ class LayoutExample extends React.Component {
             />
           )
         }
+        appBarProps={{
+          color: 'inherit',
+          className: classes.appBar,
+        }}
         footerContent={<Footer />}
-        footerProps={{ color: 'secondary' }}
+        footerProps={{ color: 'inherit', className: classes.footer }}
         leftDrawerContent={<BasicDrawer links={links} />}
         leftDrawerType={this.state.leftDrawerType}
         leftDrawerOpen={this.state.leftDrawerOpen}
