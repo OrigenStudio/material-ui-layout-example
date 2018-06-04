@@ -16,6 +16,7 @@ import LandingSection from '../LandingSection';
 import LayoutController from '../LayoutController';
 import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
+import RightDrawerContent from '../RightDrawerContent';
 
 // TODO this need to go out
 const variables = {
@@ -132,7 +133,7 @@ class LayoutExample extends React.Component {
         leftDrawerOpen={this.state.leftDrawerOpen}
         onLeftDrawerOpenChange={this.setLeftDrawerState}
         leftDrawerUnder={this.state.leftDrawerUnder}
-        rightDrawerContent={<BasicDrawer links={links} />}
+        rightDrawerContent={<RightDrawerContent />}
         rightDrawerType={this.state.rightDrawerType}
         rightDrawerOpen={this.state.rightDrawerOpen}
         rightDrawerUnder={this.state.rightDrawerUnder}
