@@ -8,6 +8,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Layout, { BasicDrawer } from 'material-ui-layout';
 import React from 'react';
+import links from '../../data/links';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
 import Footer from '../Footer';
@@ -18,16 +19,8 @@ import styles from './styles';
 
 
 
-const links = [
-  {
-    href: 'https://material-ui-next.com/',
-    label: 'Material-UI',
-  },
-  {
-    href: 'https://github.com/OrigenStudio/material-ui-layout/tree/develop/src',
-    label: 'GitHub',
-  },
-];
+
+
 
 // TODO this need to go out
 const variables = {
@@ -140,7 +133,7 @@ class LayoutExample extends React.Component {
       >
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
-            <Grid item xs={12} sm={10} md={8} lg={6}>
+            <Grid item xs={12} sm={11} md={9} lg={8}>
               <LandingSection />
               <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
