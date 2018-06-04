@@ -8,6 +8,7 @@ const palette = {
   },
   secondary: {
     main: '#2FA7CD',
+    contrastText:'#FFFFFF',
   },
   gradients: {
     primary: 'linear-gradient(to right, #340e4f 0%, #f91275 100%)',

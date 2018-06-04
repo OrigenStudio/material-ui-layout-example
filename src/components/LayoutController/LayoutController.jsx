@@ -54,9 +54,6 @@ class LayoutController extends React.Component<Props> {
       handleRightDrawerTypeChange,
       toggleMainGrow,
       toggleStickyFooter,
-      //The props above are just used for these the example
-      // --------------------------
-      // The props below are the the Layout component will pass as props.
       leftDrawerOpen,
       onLeftDrawerOpenChange,
       rightDrawerOpen,
@@ -91,7 +88,7 @@ class LayoutController extends React.Component<Props> {
             <Button
               variant="raised"
               onClick={toggleLeftDrawer}
-              color="primary"
+              color="secondary"
               disabled={leftDrawerType === 'permanent' ? true : false}
             >
               {leftDrawerOpen === true ? 'Close' : 'Open'}
@@ -129,7 +126,7 @@ class LayoutController extends React.Component<Props> {
             <Button
               variant="raised"
               onClick={toggleRightDrawer}
-              color="primary"
+              color="secondary"
               disabled={rightDrawerType === 'permanent' ? true : false}
             >
               {rightDrawerOpen === true ? 'Close' : 'Open'}
