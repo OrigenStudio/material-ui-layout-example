@@ -173,7 +173,7 @@ class LayoutExample extends React.Component {
                   <Grid container>
                     <Grid item xs={6}>
                       <Typography variant="title">
-                        Live Code Examples
+                        Code Examples
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>

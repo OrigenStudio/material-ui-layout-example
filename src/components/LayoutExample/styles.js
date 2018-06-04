@@ -7,10 +7,8 @@ export default (theme: Object): Object => ({
     width: '100%',
     background: theme.palette.gradients.primary,
     color: theme.palette.common.white,
-  },
-  paper: {
-    padding: theme.spacing.unit * 4,
-    margin: theme.spacing.unit,
+    padding: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit * 3,
   },
   appBar: {
     backgroundColor: theme.palette.background.appBar,
