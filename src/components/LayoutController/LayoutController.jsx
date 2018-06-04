@@ -29,9 +29,13 @@ type Props = {
   leftDrawerOpen: Boolean,
   toggleLeftDrawer: Function,
   onLeftDrawerOpenChange: Function,
+  leftDrawerUnder: Function,
+  toggleLeftDrawerUnder: Function,
   rightDrawerOpen: Boolean,
   toggleRightDrawer: Function,
   onRightDrawerOpenChange: Function,
+  rightDrawerUnder: Function,
+  toggleRightDrawerUnder: Function,
   handleAppBarTypeChange: Function,
   handleLeftDrawerTypeChange: Function,
   handleRightDrawerTypeChange: Function,
@@ -50,8 +54,12 @@ class LayoutController extends React.Component<Props> {
       handleAppBarTypeChange,
       toggleLeftDrawer,
       handleLeftDrawerTypeChange,
+      leftDrawerUnder,
+      toggleLeftDrawerUnder,
       toggleRightDrawer,
       handleRightDrawerTypeChange,
+      rightDrawerUnder,
+      toggleRightDrawerUnder,
       toggleMainGrow,
       toggleStickyFooter,
       leftDrawerOpen,
@@ -118,6 +126,12 @@ class LayoutController extends React.Component<Props> {
                 label="Permanent"
               />
             </RadioGroup>
+            <FormLabel>Other settings</FormLabel>
+            <FormControlLabel
+              label="leftDrawerUnder"
+              disabled={leftDrawerType==='temporary'}
+              control={<Switch checked={leftDrawerUnder} onChange={toggleLeftDrawerUnder} />}
+            />
           </FormControl>
         </ControlSection>
         <ControlSection
@@ -156,6 +170,12 @@ class LayoutController extends React.Component<Props> {
                 label="Permanent"
               />
             </RadioGroup>
+            <FormLabel>Other settings</FormLabel>
+            <FormControlLabel
+              label="rightDrawerUnder"
+              disabled={rightDrawerType === 'temporary'}
+              control={<Switch checked={rightDrawerUnder} onChange={toggleRightDrawerUnder} />}
+            />
           </FormControl>
         </ControlSection>
         <ControlSection sectionTitle="Layout Properties">

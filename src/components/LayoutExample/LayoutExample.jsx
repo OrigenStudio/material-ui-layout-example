@@ -33,8 +33,10 @@ class LayoutExample extends React.Component {
     this.state = {
       leftDrawerType: 'temporary',
       leftDrawerOpen: false,
+      leftDrawerUnder: true,
       rightDrawerType: 'temporary',
       rightDrawerOpen: false,
+      rightDrawerUnder: false,
       appBarContentType: 'simple',
       mainGrow: false,
       stickyFooter: true,
@@ -53,6 +55,11 @@ class LayoutExample extends React.Component {
       leftDrawerOpen: !this.state.leftDrawerOpen,
     });
   };
+  toggleLeftDrawerUnder =() =>{
+    this.setState({
+      leftDrawerUnder: !this.state.leftDrawerUnder,
+    })
+  }
   setLeftDrawerState = leftDrawerState => {
     this.setState({
       leftDrawerOpen: leftDrawerState,
@@ -68,6 +75,12 @@ class LayoutExample extends React.Component {
       rightDrawerOpen: !this.state.rightDrawerOpen,
     });
   };
+
+  toggleRightDrawerUnder = () => {
+    this.setState({
+      rightDrawerUnder: !this.state.rightDrawerUnder,
+    })
+  }
 
   setRightDrawerState = rightDrawerState => {
     this.setState({
@@ -125,9 +138,11 @@ class LayoutExample extends React.Component {
         leftDrawerType={this.state.leftDrawerType}
         leftDrawerOpen={this.state.leftDrawerOpen}
         onLeftDrawerOpenChange={this.setLeftDrawerState}
+        leftDrawerUnder={this.state.leftDrawerUnder}
         rightDrawerContent={<BasicDrawer links={links} />}
         rightDrawerType={this.state.rightDrawerType}
         rightDrawerOpen={this.state.rightDrawerOpen}
+        rightDrawerUnder={this.state.rightDrawerUnder}
         onRightDrawerOpenChange={this.setRightDrawerState}
       >
         <div className={classes.wrapper}>
@@ -153,9 +168,11 @@ class LayoutExample extends React.Component {
                     handleAppBarTypeChange={this.handleAppBarTypeChange}
                     handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
                     toggleLeftDrawer={this.toggleLeftDrawer}
+                    toggleLeftDrawerUnder={this.toggleLeftDrawerUnder}
                     handleRightDrawerTypeChange={
                       this.handleRightDrawerTypeChange
                     }
+                    toggleRightDrawerUnder={this.toggleRightDrawerUnder}
                     toggleRightDrawer={this.toggleRightDrawer}
                     toggleMainGrow={this.toggleMainGrow}
                     toggleStickyFooter={this.toggleStickyFooter}
