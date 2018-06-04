@@ -20,10 +20,6 @@ import styles from './styles';
 // TODO this need to go out
 const variables = {
   title: 'Material-UI-Layout-Demo',
-  smallMessage: 'Material-UI-Layout-Demo',
-  tleft: 'left',
-  tcenter: 'center',
-  tright: 'right',
 };
 
 class LayoutExample extends React.Component {
@@ -119,10 +115,7 @@ class LayoutExample extends React.Component {
             />
           ) : (
             <AppBarDouble
-              topLeftContent={variables.tleft}
-              topCenterContent={variables.tcenter}
-              topRightContent={variables.tright}
-              bottomCenterContent={variables.tcenter}
+              title={variables.title}
               toggleLeftDrawer={this.toggleLeftDrawer}
               toggleRightDrawer={this.toggleRightDrawer}
             />
