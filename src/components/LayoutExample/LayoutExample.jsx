@@ -83,7 +83,7 @@ class LayoutExample extends React.Component {
   };
 
   handleRightDrawerTypeChange = event => {
-    this.setState({ leftDrawerType: event.target.value });
+    this.setState({ rightDrawerType: event.target.value });
   };
 
   toggleRightDrawer = () => {
@@ -146,6 +146,7 @@ class LayoutExample extends React.Component {
             links={links}
           />
         }
+        footerProps={{ color: 'secondary' }}
         leftDrawerContent={<BasicDrawer links={links} />}
         leftDrawerType={this.state.leftDrawerType}
         leftDrawerOpen={this.state.leftDrawerOpen}
@@ -158,7 +159,6 @@ class LayoutExample extends React.Component {
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={10} md={8} lg={6}>
-              {/* <Paper className={classes.paper}> */}
               <LandingSection />
               <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -178,11 +178,11 @@ class LayoutExample extends React.Component {
                     {...this.state}
                     handleAppBarTypeChange={this.handleAppBarTypeChange}
                     handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
-                    onLeftDrawerOpenChange={this.setLeftDrawerState}
+                    toggleLeftDrawer={this.toggleLeftDrawer}
                     handleRightDrawerTypeChange={
                       this.handleRightDrawerTypeChange
                     }
-                    onRightDrawerOpenChange={this.setRightDrawerState}
+                    toggleRightDrawer={this.toggleRightDrawer}
                     toggleMainGrow={this.toggleMainGrow}
                     toggleStickyFooter={this.toggleStickyFooter}
                   />
@@ -206,7 +206,6 @@ class LayoutExample extends React.Component {
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             </Grid>
-            {/* </Paper> */}
           </Grid>
         </div>
       </Layout>

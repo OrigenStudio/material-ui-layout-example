@@ -27,12 +27,14 @@ type Props = {
   mainGrow: Boolean,
   stickyFooter: Boolean,
   leftDrawerOpen: Boolean,
+  toggleLeftDrawer: Function,
   onLeftDrawerOpenChange: Function,
   rightDrawerOpen: Boolean,
+  toggleRightDrawer: Function,
   onRightDrawerOpenChange: Function,
   handleAppBarTypeChange: Function,
   handleLeftDrawerTypeChange: Function,
-  handleRightDrawerChange: Function,
+  handleRightDrawerTypeChange: Function,
   toggleMainGrow: Function,
   toggleStickyFooter: Function,
 };
@@ -46,8 +48,10 @@ class LayoutController extends React.Component<Props> {
       mainGrow,
       stickyFooter,
       handleAppBarTypeChange,
+      toggleLeftDrawer,
       handleLeftDrawerTypeChange,
-      handleRightDrawerChange,
+      toggleRightDrawer,
+      handleRightDrawerTypeChange,
       toggleMainGrow,
       toggleStickyFooter,
       //The props above are just used for these the example
@@ -86,7 +90,7 @@ class LayoutController extends React.Component<Props> {
           topRightElement={
             <Button
               variant="raised"
-              onClick={onLeftDrawerOpenChange}
+              onClick={toggleLeftDrawer}
               color="primary"
               disabled={leftDrawerType === 'permanent' ? true : false}
             >
@@ -124,7 +128,7 @@ class LayoutController extends React.Component<Props> {
           topRightElement={
             <Button
               variant="raised"
-              onClick={onRightDrawerOpenChange}
+              onClick={toggleRightDrawer}
               color="primary"
               disabled={rightDrawerType === 'permanent' ? true : false}
             >
@@ -137,7 +141,7 @@ class LayoutController extends React.Component<Props> {
             <RadioGroup
               row
               value={rightDrawerType}
-              onChange={handleRightDrawerChange}
+              onChange={handleRightDrawerTypeChange}
             >
               <FormControlLabel
                 value="temporary"
