@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
+import Helmet from 'react-helmet';
 
 // TODO Use gatsby methods
 import MULImage from '../../images/MUL_Icon.jpg';
@@ -20,6 +21,9 @@ class LandingSection extends React.Component<Props> {
     const { classes } = this.props;
     return (
       <div className={classes.wrapper}>
+        <Helmet>
+          <script async defer src="https://buttons.github.io/buttons.js" />
+        </Helmet>
         <img src={MULImage} className={classes.image} alt="library icon" />
         <Typography variant="display2" className={classes.text} color="inherit">
           Material UI Layout
@@ -31,6 +35,22 @@ class LandingSection extends React.Component<Props> {
           <br />
           Material UI and Google's Material Design
         </Typography>
+        <div className={classes.githubSection}>
+          <Typography variant="subheading" color="inherit">
+            {`If you like this project don't forget to `}
+          </Typography>
+          <div className={classes.githubButton}>
+            <a
+              class="github-button"
+              href="https://github.com/OrigenStudio/material-ui-layout"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star OrigenStudio/material-ui-layout on GitHub"
+            >
+              Star
+            </a>
+          </div>
+        </div>
         <Typography variant="headline" className={classes.text} color="inherit">
           1. Install
         </Typography>
