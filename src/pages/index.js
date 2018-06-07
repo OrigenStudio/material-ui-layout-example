@@ -1,13 +1,21 @@
 // @flow
 
 import React from 'react';
-import LayoutExample from '../components/LayoutExample';
+import LandingSection from '../components/LandingSection';
 
-const IndexPage = (props: { data: Object }) => (
-  <LayoutExample title={props.data.site.siteMetadata.title} />
-);
+type P = {
+  data: Object,
+};
 
-export default IndexPage;
+type S = {};
+
+class LandingPage extends React.PureComponent<P, S> {
+  render() {
+    return <LandingSection />;
+  }
+}
+
+export default LandingPage;
 
 // $FlowIgnore: ignore graphql
 export const query = graphql`

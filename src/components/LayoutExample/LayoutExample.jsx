@@ -15,7 +15,7 @@ import Footer from '../Footer';
 import LandingSection from '../LandingSection';
 import LayoutController from '../LayoutController';
 import SyntaxShow from '../SyntaxShow';
-import styles from './styles';
+import styles from '../../layouts/styles';
 import RightDrawerContent from '../RightDrawerContent';
 
 class LayoutExample extends React.Component {
@@ -137,7 +137,6 @@ class LayoutExample extends React.Component {
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={11} md={9} lg={8}>
-              <LandingSection />
               <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                   <Grid container>
@@ -182,7 +181,7 @@ class LayoutExample extends React.Component {
                   </Grid>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <SyntaxShow gettingState={this.state} />
+                  <SyntaxShow layoutConfig={this.state} />
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             </Grid>
