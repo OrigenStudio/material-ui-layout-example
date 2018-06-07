@@ -129,7 +129,6 @@ class LayoutController extends React.Component<Props> {
             <FormLabel>Other settings</FormLabel>
             <FormControlLabel
               label="leftDrawerUnder"
-              disabled={leftDrawerType==='temporary'}
               control={<Switch checked={leftDrawerUnder} onChange={toggleLeftDrawerUnder} />}
             />
           </FormControl>
@@ -173,7 +172,6 @@ class LayoutController extends React.Component<Props> {
             <FormLabel>Other settings</FormLabel>
             <FormControlLabel
               label="rightDrawerUnder"
-              disabled={rightDrawerType === 'temporary'}
               control={<Switch checked={rightDrawerUnder} onChange={toggleRightDrawerUnder} />}
             />
           </FormControl>
