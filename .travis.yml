@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+  - "8"
+cache:
+  directories:
+  - node_modules
+deploy:
+  - provider: surge
+    skip-cleanup: true
+    project: ./public/
+    keep-history: true
+    domain: mul-example-develop.surge.sh
+    on:
+      branch: develop
+  - provider: surge
+    skip-cleanup: true
+    project: ./public/
+    keep-history: true
+    domain: material-ui-layout.origen.studio
+    on:
+      branch: master
+before_script:
+  - "npm i -g gatsby"
+  - "npm i"
+script:
+  - "npm run test"
+after_success:
+  - "npm run build"
+notifications:
+  slack:
+    on_pull_requests: false
+    template:
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+      - "Develop goes to https://mul-example-develop.surge.sh / Master goes to https://material-ui-layout.origen.studio"
+    rooms:
+      - origen-studio:pZY8AyN5fUuPPLw7lR6UN72v#p-open-source
+branches:
+  only:
+    - master
+    - develop
