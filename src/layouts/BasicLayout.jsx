@@ -25,6 +25,7 @@ class BasicLayout extends React.PureComponent<Props> {
           color: 'inherit',
           className: classes.appBar,
         }}
+        leftDrawerContent={<BasicDrawer links={links} />}
         footerContent={<Footer />}
         footerProps={{ color: 'inherit', className: classes.footer }}
         stickyFooter
