@@ -4,6 +4,7 @@ export default (theme: Object): Object => ({
   wrapper: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     background: theme.palette.gradients.primary,
     color: theme.palette.common.white,
