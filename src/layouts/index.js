@@ -8,7 +8,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../config/theme';
 
-import BasicLayout from './BasicLayout';
+import BasicLayout from '../components/Layouts/BasicLayout';
 
 type Props = {
   children: Function,

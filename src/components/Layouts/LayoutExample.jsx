@@ -15,7 +15,7 @@ import Footer from '../Footer';
 import LandingSection from '../LandingSection';
 import LayoutController from '../LayoutController';
 import SyntaxShow from '../SyntaxShow';
-import styles from '../../layouts/styles';
+import styles from './styles';
 import RightDrawerContent from '../RightDrawerContent';
 
 class LayoutExample extends React.Component {

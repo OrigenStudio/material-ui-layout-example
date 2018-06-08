@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import Layout, { BasicDrawer } from 'material-ui-layout';
-import AppBarSimple from '../components/AppBarSimple';
-import Footer from '../components/Footer';
+import AppBarSimple from '../AppBarSimple';
+import Footer from '../Footer';
 import { withStyles } from '@material-ui/core/styles';
 
-import links from '../data/links';
+import links from '../../data/links';
 import styles from './styles';
 
 type Props = {

@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import LayoutExample from '../components/LayoutExample';
+import LayoutExample from '../components/Layouts/LayoutExample';
 
 const IndexPage = (props: { data: Object }) => (
   <LayoutExample title={'hello'} />
