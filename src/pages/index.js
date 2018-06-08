@@ -3,13 +3,11 @@
 import React from 'react';
 import LandingSection from '../components/LandingSection';
 
-type P = {
+type Props = {
   data: Object,
 };
 
-type S = {};
-
-class LandingPage extends React.PureComponent<P, S> {
+class LandingPage extends React.PureComponent<Props> {
   render() {
     return <LandingSection />;
   }
