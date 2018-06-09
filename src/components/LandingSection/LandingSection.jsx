@@ -6,38 +6,43 @@ import { withStyles } from '@material-ui/core/styles';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
 import Helmet from 'react-helmet';
+import classNames from 'classnames';
 
 // TODO Use gatsby methods
 import MULImage from '../../images/MUL_Icon.jpg';
+import links from '../../data/links';
+const gettingStartedLink = links[0];
+const demoLink = links[1];
 
 import styles from './styles';
 
 type Props = {
   classes: Object,
+  data: Object,
 };
 
 class LandingSection extends React.Component<Props> {
   render() {
-    const { classes } = this.props;
+    const { classes, data } = this.props;
     return (
       <div className={classes.wrapper}>
         <Helmet>
           <script async defer src="https://buttons.github.io/buttons.js" />
         </Helmet>
-        <img src={MULImage} className={classes.image} alt="library icon" />
-        <Typography variant="display2" className={classes.text} color="inherit">
-          Material UI Layout
-        </Typography>
-        <Typography variant="title" className={classes.text} color="inherit">
-          React components to create layouts
-          <br />
-          based on
-          <br />
-          Material UI and Google's Material Design
-        </Typography>
-        <div className={classes.githubSection}>
+        <div className={classes.section}>
+          <img src={MULImage} className={classes.image} alt="library icon" />
+        </div>
+        <div className={classes.section}>
+          <Typography variant="display2" color="inherit">
+            {data.site.siteMetadata.title}
+          </Typography>
+          <Typography variant="headline" color="inherit">
+            {data.site.siteMetadata.version}
+          </Typography>
+        </div>
+        <div className={classNames(classes.section, classes.githubSection)}>
           <Typography variant="subheading" color="inherit">
-            {`If you like this project don't forget to `}
+            {`If you like don't forget to `}
           </Typography>
           <div className={classes.githubButton}>
             <a
@@ -51,48 +56,64 @@ class LandingSection extends React.Component<Props> {
             </a>
           </div>
         </div>
-        <Typography variant="headline" className={classes.text} color="inherit">
-          1. Install
-        </Typography>
-        <SyntaxHighlighter language="bash" style={okaidia}>
-          npm install --save material-ui-layout
-        </SyntaxHighlighter>
-        <Typography variant="headline" className={classes.text} color="inherit">
-          2. Implement layouts easily
-        </Typography>
-        <SyntaxHighlighter language="jsx" style={okaidia}>
-          {`
-        import React from 'react'
-        import Layout from 'material-ui-layout'
-
-        import AppBarContent from '../components/AppBarContent'
-        import FooterContent from '../components/AppBarContent'
-        import DrawerContent from '../components/AppBarContent'
-        
-        const MyAppLayout = children => (
-          <Layout
-          appBarContent={<AppBarContent/>}
-          leftDrawerContent={<DrawerContent />}
-          footerContent={<FooterContent />}
-          stickyFooter
+        <div className={classes.section}>
+          <Typography variant="title" color="inherit">
+            React components to create layouts
+            <br />
+            based on
+            <br />
+          </Typography>
+          <div className={classes.buttonGroup}>
+            <Button
+              color="inherit"
+              className={classNames(classes.button, classes.noTextDecoration)}
+            >
+              <Typography variant="title" color="inherit">
+                Material-UI
+              </Typography>
+            </Button>
+            <Typography variant="title" color="inherit">
+              {`&`}
+            </Typography>
+            <Button
+              color="inherit"
+              className={classNames(classes.button, classes.noTextDecoration)}
+            >
+              <Typography variant="title" color="inherit">
+                Google's Material Design
+              </Typography>
+            </Button>
+          </div>
+        </div>
+        <div className={classes.code}>
+          <SyntaxHighlighter language="bash" style={okaidia}>
+            npm install --save material-ui-layout
+          </SyntaxHighlighter>
+        </div>
+        <div className={classes.buttonGroup}>
+          <Button
+            color="primary"
+            variant="raised"
+            className={classes.button}
+            onClick={gettingStartedLink.onClick}
           >
-            {children}
-          </Layout>
-        )
-
-        export default MyAppLayout
-        `}
-        </SyntaxHighlighter>
-        <Typography variant="caption" className={classes.text} color="inherit">
-          *this example is really simple... don't worry it has a lot of options
-          to customize it and control it
-        </Typography>
-        <Typography variant="headline" className={classes.text} color="inherit">
-          3. ??
-        </Typography>
-        <Typography variant="headline" className={classes.text} color="inherit">
-          4. Profit
-        </Typography>
+            <gettingStartedLink.icon className={classes.buttonIcon} />
+            <Typography variant="title" color="inherit">
+              {gettingStartedLink.label}
+            </Typography>
+          </Button>
+          <Button
+            color="secondary"
+            variant="raised"
+            className={classes.button}
+            onClick={demoLink.onClick}
+          >
+            <demoLink.icon className={classes.buttonIcon} />
+            <Typography variant="title" color="inherit">
+              {demoLink.label}
+            </Typography>
+          </Button>
+        </div>
       </div>
     );
   }

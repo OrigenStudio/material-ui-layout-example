@@ -9,7 +9,7 @@ type Props = {
 
 class LandingPage extends React.PureComponent<Props> {
   render() {
-    return <LandingSection />;
+    return <LandingSection data={this.props.data} />;
   }
 }
 
@@ -21,6 +21,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        version
       }
     }
   }
