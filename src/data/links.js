@@ -4,17 +4,29 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import github from '@fortawesome/fontawesome-free-brands/faGithub';
 import withProps from 'recompose/withProps';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-
+import DeveloperMode from '@material-ui/icons/DeveloperMode';
+import Devices from '@material-ui/icons/Devices';
+import { navigateTo } from 'gatsby-link';
 
 export default [
   {
-    href: 'https://material-ui-next.com/',
-    label: 'Material-UI',
-    icon: KeyboardArrowRight,
+    label: 'Getting Started',
+    onClick:() => navigateTo('/getting-started'),
+    icon: DeveloperMode,
+  },
+  {
+    label: 'Layout Controller Demo',
+    onClick:() => navigateTo('/layout-controller'),
+    icon: Devices,
   },
   {
     href: 'https://github.com/OrigenStudio/material-ui-layout/tree/develop/src',
-    label: 'GitHub',
+    label: 'Code',
     icon: withProps({ icon: github, size: 'lg' })(FontAwesomeIcon),
+  },
+  {
+    href: 'https://origen.studio',
+    label: 'Origen',
+    icon: KeyboardArrowRight,
   },
 ];
