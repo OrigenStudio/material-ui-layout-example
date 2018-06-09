@@ -36,7 +36,7 @@ class LandingSection extends React.Component<Props> {
           <Typography variant="display2" color="inherit">
             {data.site.siteMetadata.title}
           </Typography>
-          <Typography variant="headline" color="inherit">
+          <Typography variant="title" color="inherit">
             {data.site.siteMetadata.version}
           </Typography>
         </div>
@@ -57,11 +57,10 @@ class LandingSection extends React.Component<Props> {
           </div>
         </div>
         <div className={classes.section}>
-          <Typography variant="title" color="inherit">
-            React components to create layouts
+          <Typography variant="headline" color="inherit">
+            A declarative way to create layouts easily
             <br />
             based on
-            <br />
           </Typography>
           <div className={classes.buttonGroup}>
             <Button
