@@ -17,6 +17,7 @@ import LayoutController from '../LayoutController';
 import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
 import RightDrawerContent from '../RightDrawerContent';
+import { navigateTo } from 'gatsby-link';
 
 class LayoutExample extends React.Component {
   constructor(props) {
@@ -108,6 +109,9 @@ class LayoutExample extends React.Component {
               links={links}
               toggleLeftDrawer={this.toggleLeftDrawer}
               toggleRightDrawer={this.toggleRightDrawer}
+              onLogoClick={() => {
+                navigateTo('/');
+              }}
             />
           ) : (
             <AppBarDouble
