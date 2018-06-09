@@ -1,19 +1,38 @@
+// @flow
+
 import React from 'react';
-import {
-  BasicAppBar,
-}  from 'material-ui-layout';
+import { BasicAppBar } from 'material-ui-layout';
 
+type Props = {
+  toggleLeftDrawer: Function,
+  toggleRightDrawer: Function,
+  title: String,
+  links: Array<Object>,
+  logo: Strings,
+  menuIconAlways: Boolean,
+};
 
-
-const AppBarSimple = ({ toggleLeftDrawer, toggleRightDrawer, title, links, logo }) => (
+class AppBarSimple extends React.PureComponent<Props> {
+  render() {
+    const {
+      toggleLeftDrawer,
+      toggleRightDrawer,
+      title,
+      links,
+      logo,
+      menuIconAlways,
+    } = this.props;
+    return (
       <BasicAppBar
-        menuIconAlways={true}
+        menuIconAlways={menuIconAlways}
         title={title}
         logo={logo}
         links={links}
         toggleLeftDrawer={toggleLeftDrawer}
         toggleRightDrawer={toggleRightDrawer}
-        />
-      )
+      />
+    );
+  }
+}
 
 export default AppBarSimple;

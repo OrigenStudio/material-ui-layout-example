@@ -20,7 +20,7 @@ class BasicLayout extends React.PureComponent<Props> {
     const { classes, title, children } = this.props;
     return (
       <Layout
-        appBarContent={<AppBarSimple title={title} links={links} />}
+        appBarContent={<AppBarSimple title={title} links={links} menuIconAlways={false} />}
         appBarProps={{
           color: 'inherit',
           className: classes.appBar,
