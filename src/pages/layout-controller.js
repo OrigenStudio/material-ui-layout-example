@@ -4,18 +4,22 @@ import React from 'react';
 import LayoutExample from '../components/Layouts/LayoutExample';
 
 const IndexPage = (props: { data: Object }) => (
-  <LayoutExample title={'hello'} />
+  <LayoutExample
+    title={props.data.site.siteMetadata.title}
+    version={props.data.site.siteMetadata.title}
+  />
 );
 
 export default IndexPage;
 
 // $FlowIgnore: ignore graphql
-// export const query = graphql`
-//   query IndexPageQuery {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query LayoutControllerQuery {
+    site {
+      siteMetadata {
+        title
+        version
+      }
+    }
+  }
+`;
