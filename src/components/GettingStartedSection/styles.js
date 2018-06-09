@@ -8,12 +8,16 @@ export default (theme: Object): Object => ({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  text: {
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 4,
+  section: {
+    marginTop: theme.spacing.unit * 4,
     textAlign: 'center',
+    width:'auto',
+    maxWidth: '100%',
   },
   code:{
-    width: '100%',
-  }
+    width: 'auto',
+    maxWidth: '100%',
+  },
+  button: { margin: theme.spacing.unit },
+  buttonIcon: { marginRight: theme.spacing.unit },
 });

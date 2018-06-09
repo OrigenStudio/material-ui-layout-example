@@ -7,30 +7,38 @@ import { withStyles } from '@material-ui/core/styles';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
 import Helmet from 'react-helmet';
+import BrandingSection from '../BrandingSection';
 
 import styles from './styles';
+import links from '../../data/links';
+const demoLink = links[1];
 
 type Props = {
   classes: Object,
+  title: String,
+  version: String,
 };
 
 class GettingStartedSection extends React.PureComponent<Props> {
   render() {
-    const { classes } = this.props;
-    return (
-      <div className={classes.wrapper}>
-        <Typography variant="headline" className={classes.text} color="inherit">
+    const { classes, title, version } = this.props;
+    return <div className={classes.wrapper}>
+        <BrandingSection title={title} subtitle={version} />
+        <Typography variant="headline" className={classes.section} color="inherit">
           1. Install
         </Typography>
-        <SyntaxHighlighter language="bash" style={okaidia}>
-          npm install --save material-ui-layout
-        </SyntaxHighlighter>
-        <Typography variant="headline" className={classes.text} color="inherit">
-          2. Implement layouts easily
-        </Typography>
         <div className={classes.code}>
-          <SyntaxHighlighter language="jsx" style={okaidia}>
-            {`
+          <SyntaxHighlighter language="bash" style={okaidia}>
+            npm install --save material-ui-layout
+          </SyntaxHighlighter>
+        </div>
+        <div className={classes.section}>
+          <Typography variant="headline" color="inherit">
+            2. Implement layouts easily
+          </Typography>
+          <div className={classes.code}>
+            <SyntaxHighlighter language="jsx" style={okaidia}>
+              {`
         import React from 'react'
         import Layout from 'material-ui-layout'
         
@@ -51,20 +59,30 @@ class GettingStartedSection extends React.PureComponent<Props> {
         
         export default MyAppLayout
         `}
-          </SyntaxHighlighter>
+            </SyntaxHighlighter>
+          </div>
+          <Typography variant="caption" color="inherit">
+            *this example is really simple... don't worry it has a lot of options to customize it and control it
+          </Typography>
         </div>
-        <Typography variant="caption" className={classes.text} color="inherit">
-          *this example is really simple... don't worry it has a lot of options
-          to customize it and control it
-        </Typography>
-        <Typography variant="headline" className={classes.text} color="inherit">
+        <Typography variant="headline" className={classes.section} color="inherit">
           3. ??
         </Typography>
-        <Typography variant="headline" className={classes.text} color="inherit">
+        <Typography variant="headline" className={classes.section} color="inherit">
           4. Profit
         </Typography>
-      </div>
-    );
+        <div className={classes.section}>
+          <Typography variant="headline" color="inherit">
+            Not convinced? 🤔 
+            <br/>
+            Play with the different options 🕹️
+          </Typography>
+          <Button color="secondary" variant="raised" className={classes.button} onClick={demoLink.onClick}>
+            <demoLink.icon className={classes.buttonIcon} />
+            {demoLink.label}
+          </Button>
+        </div>
+      </div>;
   }
 }
 

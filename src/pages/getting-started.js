@@ -4,7 +4,7 @@ import React from 'react';
 import GettingStartedSection from '../components/GettingStartedSection';
 
 const IndexPage = (props: { data: Object }) => (
-  <GettingStartedSection title={props.data.site.siteMetadata.title} />
+  <GettingStartedSection title={props.data.site.siteMetadata.title} version={props.data.site.siteMetadata.version} />
 );
 
 export default IndexPage;
@@ -15,6 +15,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        version
       }
     }
   }
