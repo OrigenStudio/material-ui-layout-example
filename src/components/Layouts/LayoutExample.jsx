@@ -48,11 +48,11 @@ class LayoutExample extends React.Component {
       leftDrawerOpen: !this.state.leftDrawerOpen,
     });
   };
-  toggleLeftDrawerUnder =() =>{
+  toggleLeftDrawerUnder = () => {
     this.setState({
       leftDrawerUnder: !this.state.leftDrawerUnder,
-    })
-  }
+    });
+  };
   setLeftDrawerState = leftDrawerState => {
     this.setState({
       leftDrawerOpen: leftDrawerState,
@@ -72,8 +72,8 @@ class LayoutExample extends React.Component {
   toggleRightDrawerUnder = () => {
     this.setState({
       rightDrawerUnder: !this.state.rightDrawerUnder,
-    })
-  }
+    });
+  };
 
   setRightDrawerState = rightDrawerState => {
     this.setState({
@@ -121,10 +121,7 @@ class LayoutExample extends React.Component {
             />
           )
         }
-        appBarProps={{
-          color: 'inherit',
-          className: classes.appBar,
-        }}
+        appBarProps={{ color: 'inherit', className: classes.appBar }}
         footerContent={<Footer />}
         footerProps={{ color: 'inherit', className: classes.footer }}
         leftDrawerContent={<BasicDrawer links={links} />}
@@ -141,7 +138,7 @@ class LayoutExample extends React.Component {
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={11} md={9} lg={8}>
-              <ExpansionPanel>
+              <ExpansionPanel defaultExpanded>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                   <Grid container>
                     <Grid item xs={6}>
@@ -175,9 +172,7 @@ class LayoutExample extends React.Component {
                 <ExpansionPanelSummary expandIcon={<CodeIcon />}>
                   <Grid container>
                     <Grid item xs={6}>
-                      <Typography variant="title">
-                        Code Examples
-                      </Typography>
+                      <Typography variant="title">Code Examples</Typography>
                     </Grid>
                     <Grid item xs={6}>
                       <Typography variant="subheading">Show me 💻</Typography>
