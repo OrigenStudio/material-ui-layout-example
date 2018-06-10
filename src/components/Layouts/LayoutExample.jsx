@@ -27,7 +27,19 @@ type Props = {
   version: String,
 };
 
-class LayoutExample extends React.Component<Props> {
+type State = {
+  leftDrawerType: string,
+  leftDrawerOpen: true | false,
+  leftDrawerUnder: true | false,
+  rightDrawerType: string,
+  rightDrawerOpen: true | false,
+  rightDrawerUnder: true | false,
+  appBarContentType: string,
+  mainGrow: true | false,
+  stickyFooter: true | false,
+};
+
+class LayoutExample extends React.Component<Props, State> {
   constructor(props) {
     super(props);
 
