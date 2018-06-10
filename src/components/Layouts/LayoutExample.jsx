@@ -23,8 +23,8 @@ import styles from './styles';
 
 type Props = {
   classes: Object,
-  title: String,
-  version: String,
+  title: string,
+  version: string,
 };
 
 type State = {

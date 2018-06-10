@@ -11,7 +11,7 @@ import styles from './styles';
 
 type Props = {
   classes: Object,
-  title: String,
+  title: string,
   children: React.Node,
 };
 

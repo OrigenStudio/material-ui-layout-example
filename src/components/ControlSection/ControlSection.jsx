@@ -10,7 +10,7 @@ import styles from './styles';
 
 type Props = {
   classes: Object,
-  sectionTitle: String,
+  sectionTitle: string,
   children: React.Node,
   topRightElement: React.Node,
 };

@@ -12,9 +12,9 @@ import MULImage from '../../images/MUL_Icon.jpg';
 
 type Props = {
   classes: Object,
-  title: String,
-  subtitle: String,
-  className: String,
+  title: string,
+  subtitle: string,
+  className: string,
 };
 
 class BrandingSection extends PureComponent<Props> {

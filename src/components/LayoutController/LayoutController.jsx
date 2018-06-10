@@ -14,9 +14,9 @@ import * as React from 'react';
 import ControlSection from '../ControlSection';
 
 type Props = {
-  appBarContentType: String,
-  leftDrawerType: String,
-  rightDrawerType: String,
+  appBarContentType: string,
+  leftDrawerType: string,
+  rightDrawerType: string,
   mainGrow: Boolean,
   stickyFooter: Boolean,
   leftDrawerOpen: Boolean,

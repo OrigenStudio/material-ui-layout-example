@@ -15,8 +15,8 @@ const demoLink = links[1];
 
 type Props = {
   classes: Object,
-  title: String,
-  version: String,
+  title: string,
+  version: string,
 };
 
 class GettingStartedSection extends React.PureComponent<Props> {

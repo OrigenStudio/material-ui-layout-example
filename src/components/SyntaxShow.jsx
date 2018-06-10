@@ -39,7 +39,7 @@ class SyntaxShow extends React.PureComponent<P> {
       layoutConfig.rightDrawerUnder ? 'rightDrawerUnder // default false' : ''
     }`;
 
-    const codeString = `
+    const codestring = `
   import React from 'react';
   import Layout, {
     ${layoutConfig.appBarContentType === 'simple' ? 'BasicAppBar' : 'TwoRowsAppBar'},
@@ -102,7 +102,7 @@ class SyntaxShow extends React.PureComponent<P> {
 
     return (
       <SyntaxHighlighter language="jsx" style={okaidia} showLineNumbers>
-        {codeString}
+        {codestring}
       </SyntaxHighlighter>
     );
   }
