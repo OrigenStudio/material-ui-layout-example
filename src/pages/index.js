@@ -1,13 +1,28 @@
-import React from 'react'
-import Link from 'gatsby-link'
+// @flow
 
-const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
-)
+import React from 'react';
+import LandingSection from '../components/LandingSection';
 
-export default IndexPage
+type Props = {
+  data: Object,
+};
+
+class LandingPage extends React.PureComponent<Props> {
+  render() {
+    return <LandingSection data={this.props.data} />;
+  }
+}
+
+export default LandingPage;
+
+// $FlowIgnore: ignore graphql
+export const query = graphql`
+  query IndexPageQuery {
+    site {
+      siteMetadata {
+        title
+        version
+      }
+    }
+  }
+`;

@@ -8,22 +8,19 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import theme from '../config/theme';
 
-import BasicLayout from '../components/Layouts/BasicLayout';
-
 type Props = {
   children: Function,
   data: Object,
-  classes: Object,
 };
 
-class MainLayout extends React.Component<Props> {
+class Layout extends React.Component<Props> {
   render() {
-    const { children, data, classes } = this.props;
+    const { children, data } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={`🕹️ Let's play!`}
           meta={[
             {
               name: 'description',
@@ -43,23 +40,10 @@ class MainLayout extends React.Component<Props> {
             },
           ]}
         />
-        <BasicLayout title={data.site.siteMetadata.title}>
-          {children()}
-        </BasicLayout>
+        <div>{children()}</div>
       </MuiThemeProvider>
     );
   }
 }
 
-export default MainLayout;
-
-// $FlowIgnore: ignore graphql
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
+export default Layout;
