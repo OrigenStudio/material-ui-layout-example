@@ -175,7 +175,7 @@ class LayoutExample extends React.Component {
                 <ExpansionPanelSummary expandIcon={<CodeIcon />}>
                   <Grid container>
                     <Grid item xs={6}>
-                      <Typography variant="title">Code Examples</Typography>
+                      <Typography variant="title">Code</Typography>
                     </Grid>
                     <Grid item xs={6}>
                       <Typography variant="subheading">Show me 💻</Typography>
