@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
-import Helmet from 'react-helmet';
 import BrandingSection from '../BrandingSection';
 
 import styles from './styles';
