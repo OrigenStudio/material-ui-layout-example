@@ -11,6 +11,8 @@
     "@material-ui/icons": "^1.1.0",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
+    "gatsby-plugin-favicon": "^2.1.1",
+    "gatsby-plugin-manifest": "^1.0.25",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "material-ui-layout": "0.1.0-rc.3",
     "react": "^16.4.0",
@@ -18,16 +20,17 @@
     "react-helmet": "^5.2.0",
     "react-syntax-highlighter": "^7.0.4"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "gatsby build && echo \"Error: no test specified - build passed\"" ,
+    "test": "gatsby build && echo \"Error: no test specified - build passed\"",
     "flow": "flow",
-    "deploy-staging":
-      "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
+    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
