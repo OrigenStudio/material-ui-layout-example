@@ -2,6 +2,7 @@
 
 export default (theme: Object): Object => ({
   wrapper: {
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
