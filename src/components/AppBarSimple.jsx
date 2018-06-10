@@ -10,10 +10,18 @@ type Props = {
   links?: Array<Object>,
   logo?: String,
   onLogoClick?: Function,
-  menuIconAlways?: Boolean,
+  menuIconAlways?: true | false,
 };
 
 class AppBarSimple extends React.PureComponent<Props> {
+  static defaultProps ={
+    toggleLeftDrawer: undefined,
+    toggleRightDrawer: undefined,
+    links: undefined,
+    logo: undefined,
+    onLogoClick: undefined,
+    menuIconAlways: false,
+  }
   render() {
     const {
       toggleLeftDrawer,
