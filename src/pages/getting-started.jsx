@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react';
-import GettingStartedSection from '../components/GettingStartedSection';
 import Helmet from 'react-helmet';
+import GettingStartedSection from '../components/GettingStartedSection';
 
 const IndexPage = (props: { data: Object }) => (
   <div>
