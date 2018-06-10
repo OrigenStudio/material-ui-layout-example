@@ -12,7 +12,7 @@ module.exports = {
         short_name: 'MUL',
         start_url: '/',
         background_color: '#18232B',
-        theme_color: '#a2466c',
+        theme_color: '#E72476',
         display: 'minimal-ui',
         icon: 'src/images/MUL_Icon.jpg', // This path is relative to the root of the site.
       },
