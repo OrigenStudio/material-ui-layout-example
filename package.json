@@ -1,5 +1,5 @@
 {
-  "name": "Material UI Layout Example",
+  "name": "material-ui-layout-example",
   "description": "Example and documentation page for material ui layout",
   "version": "0.1.0-rc.3",
   "author": "Origen Studio <hello@origen.studio>",
@@ -18,9 +18,7 @@
     "react-helmet": "^5.2.0",
     "react-syntax-highlighter": "^7.0.4"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -28,7 +26,8 @@
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow",
-    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
+    "deploy-staging":
+      "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
