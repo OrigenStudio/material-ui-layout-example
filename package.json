@@ -1,29 +1,59 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "material-ui-layout-example",
+  "description": "Example and documentation page for material ui layout",
+  "version": "0.1.0-rc.3",
+  "author": "Origen Studio <hello@origen.studio>",
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/react-fontawesome": "0.0.20",
+    "@material-ui/core": "^1.1.0",
+    "@material-ui/icons": "^1.1.0",
+    "classnames": "^2.2.6",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
+    "gatsby-plugin-favicon": "^2.1.1",
+    "gatsby-plugin-manifest": "^1.0.25",
+    "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.10",
-    "react-helmet": "^5.2.0"
+    "lodash": "^4.17.10",
+    "material-ui-layout": "0.1.0-rc.4",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-helmet": "^5.2.0",
+    "react-syntax-highlighter": "^7.0.4",
+    "recompose": "^0.27.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":
+      "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
+    "flow": "flow",
+    "eslint": "./node_modules/.bin/eslint src/ --ext js,jsx",
+    "deploy-staging":
+      "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-graphql": "^2.1.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "flow-bin": "^0.73.0",
     "prettier": "^1.12.0"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/gatsbyjs/gatsby-starter-default"
+    "type": "git",
+    "url": "https://github.com/OrigenStudio/material-ui-layout-example"
   }
 }
