@@ -2,14 +2,12 @@
 
 import * as React from 'react';
 import Layout, { BasicDrawer } from 'material-ui-layout';
-import AppBarSimple from '../AppBarSimple';
-import Footer from '../Footer';
 import { withStyles } from '@material-ui/core/styles';
 import { navigateTo } from 'gatsby-link';
-
+import AppBarSimple from '../AppBarSimple';
+import Footer from '../Footer';
 import links from '../../data/links';
 import styles from './styles';
-import { log } from 'util';
 
 type Props = {
   classes: Object,

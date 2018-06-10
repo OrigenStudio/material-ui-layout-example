@@ -10,7 +10,7 @@ class RightDrawerContent extends React.PureComponent<Props> {
   render() {
     return (
       <div>
-        <Typography variant="headline" style={{padding: '8px'}}>
+        <Typography variant="headline" style={{ padding: '8px' }}>
           {' '}
           Companies that may use it someday{' '}
         </Typography>

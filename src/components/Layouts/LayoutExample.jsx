@@ -1,27 +1,33 @@
+// @flow
+
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import CodeIcon from '@material-ui/icons/Code';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { navigateTo } from 'gatsby-link';
 import Layout, { BasicDrawer } from 'material-ui-layout';
 import React from 'react';
 import links from '../../data/links';
 import AppBarDouble from '../AppBarDouble';
 import AppBarSimple from '../AppBarSimple';
+import BrandingSection from '../BrandingSection';
 import Footer from '../Footer';
-import LandingSection from '../LandingSection';
 import LayoutController from '../LayoutController';
+import RightDrawerContent from '../RightDrawerContent';
 import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
-import RightDrawerContent from '../RightDrawerContent';
-import { navigateTo } from 'gatsby-link';
-import { GridList, GridListTile } from '@material-ui/core';
-import BrandingSection from '../BrandingSection';
 
-class LayoutExample extends React.Component {
+type Props = {
+  classes: Object,
+  title: String,
+  version: String,
+};
+
+class LayoutExample extends React.Component<Props> {
   constructor(props) {
     super(props);
 
@@ -37,31 +43,20 @@ class LayoutExample extends React.Component {
       stickyFooter: true,
     };
   }
-  handleAppBarTypeChange = event => {
-    this.setState({ appBarContentType: event.target.value });
-  };
 
-  handleLeftDrawerTypeChange = event => {
-    this.setState({ leftDrawerType: event.target.value });
-  };
-
-  toggleLeftDrawer = () => {
-    this.setState({
-      leftDrawerOpen: !this.state.leftDrawerOpen,
-    });
-  };
-  toggleLeftDrawerUnder = () => {
-    this.setState({
-      leftDrawerUnder: !this.state.leftDrawerUnder,
-    });
-  };
-  setLeftDrawerState = leftDrawerState => {
+  setLeftDrawerState = (leftDrawerState) => {
     this.setState({
       leftDrawerOpen: leftDrawerState,
     });
   };
 
-  handleRightDrawerTypeChange = event => {
+  setRightDrawerState = (rightDrawerState) => {
+    this.setState({
+      rightDrawerOpen: rightDrawerState,
+    });
+  };
+
+  handleRightDrawerTypeChange = (event) => {
     this.setState({ rightDrawerType: event.target.value });
   };
 
@@ -77,10 +72,28 @@ class LayoutExample extends React.Component {
     });
   };
 
-  setRightDrawerState = rightDrawerState => {
+  toggleLeftDrawer = () => {
     this.setState({
-      rightDrawerOpen: rightDrawerState,
+      leftDrawerOpen: !this.state.leftDrawerOpen,
     });
+  };
+
+  toggleLeftDrawerUnder = () => {
+    this.setState({
+      leftDrawerUnder: !this.state.leftDrawerUnder,
+    });
+  };
+
+  handleLeftDrawerTypeChange = (event) => {
+    this.setState({ leftDrawerType: event.target.value });
+  };
+
+  handleLeftDrawerTypeChange = (event) => {
+    this.setState({ leftDrawerType: event.target.value });
+  };
+
+  handleAppBarTypeChange = (event) => {
+    this.setState({ appBarContentType: event.target.value });
   };
 
   toggleMainGrow = () => {
@@ -99,11 +112,9 @@ class LayoutExample extends React.Component {
     const { classes, title, version } = this.props;
     return (
       <Layout
-        mainGrow={this.state.mainGrow === false ? false : true}
-        stickyFooter={this.state.stickyFooter === false ? false : true}
-        usingTwoRowAppBar={
-          this.state.appBarContentType === 'double' ? true : false
-        }
+        mainGrow={this.state.mainGrow !== false}
+        stickyFooter={this.state.stickyFooter !== false}
+        usingTwoRowAppBar={this.state.appBarContentType === 'double'}
         appBarContent={
           this.state.appBarContentType === 'simple' ? (
             <AppBarSimple
@@ -148,9 +159,7 @@ class LayoutExample extends React.Component {
                       <Typography variant="title">Layout Controller</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography variant="subheading">
-                        Play with me! 🕹️
-                      </Typography>
+                      <Typography variant="subheading">Play with me! 🕹️</Typography>
                     </Grid>
                   </Grid>
                 </ExpansionPanelSummary>
@@ -161,9 +170,7 @@ class LayoutExample extends React.Component {
                     handleLeftDrawerTypeChange={this.handleLeftDrawerTypeChange}
                     toggleLeftDrawer={this.toggleLeftDrawer}
                     toggleLeftDrawerUnder={this.toggleLeftDrawerUnder}
-                    handleRightDrawerTypeChange={
-                      this.handleRightDrawerTypeChange
-                    }
+                    handleRightDrawerTypeChange={this.handleRightDrawerTypeChange}
                     toggleRightDrawerUnder={this.toggleRightDrawerUnder}
                     toggleRightDrawer={this.toggleRightDrawer}
                     toggleMainGrow={this.toggleMainGrow}
@@ -186,8 +193,7 @@ class LayoutExample extends React.Component {
                   <Grid container>
                     <Grid item xs={12}>
                       <Typography variant="body2">
-                        The code below changes according to the options selected
-                        above 🤓
+                        The code below changes according to the options selected above 🤓
                       </Typography>
                     </Grid>
                     <Grid item xs={12}>

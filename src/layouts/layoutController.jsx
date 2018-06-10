@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -10,7 +9,6 @@ import theme from '../config/theme';
 
 type Props = {
   children: Function,
-  data: Object,
 };
 
 class Layout extends React.Component<Props> {

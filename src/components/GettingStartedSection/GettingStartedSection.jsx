@@ -10,6 +10,7 @@ import BrandingSection from '../BrandingSection';
 
 import styles from './styles';
 import links from '../../data/links';
+
 const demoLink = links[1];
 
 type Props = {
@@ -21,7 +22,8 @@ type Props = {
 class GettingStartedSection extends React.PureComponent<Props> {
   render() {
     const { classes, title, version } = this.props;
-    return <div className={classes.wrapper}>
+    return (
+      <div className={classes.wrapper}>
         <BrandingSection title={title} subtitle={version} />
         <Typography variant="headline" className={classes.section} color="inherit">
           1. Install
@@ -61,7 +63,7 @@ class GettingStartedSection extends React.PureComponent<Props> {
             </SyntaxHighlighter>
           </div>
           <Typography variant="caption" color="inherit">
-            *this example is really simple... don't worry it has a lot of options to customize it and control it
+            {'*this example is really simple... don\'t worry it has a lot of options to customize it and control it'}
           </Typography>
         </div>
         <Typography variant="headline" className={classes.section} color="inherit">
@@ -72,16 +74,22 @@ class GettingStartedSection extends React.PureComponent<Props> {
         </Typography>
         <div className={classes.section}>
           <Typography variant="headline" color="inherit">
-            Not convinced? 🤔 
-            <br/>
+            Not convinced? 🤔
+            <br />
             Play with the different options 🕹️
           </Typography>
-          <Button color="secondary" variant="raised" className={classes.button} onClick={demoLink.onClick}>
+          <Button
+            color="secondary"
+            variant="raised"
+            className={classes.button}
+            onClick={demoLink.onClick}
+          >
             <demoLink.icon className={classes.buttonIcon} />
             {demoLink.label}
           </Button>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
