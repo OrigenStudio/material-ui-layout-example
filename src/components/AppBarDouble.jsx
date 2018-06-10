@@ -8,7 +8,7 @@ import Menu from '@material-ui/icons/Menu';
 import { Typography } from '@material-ui/core';
 
 const AppBarDouble = (props: {
-  title: String,
+  title: string,
   toggleLeftDrawer: Function,
   toggleRightDrawer: Function,
 }) => (

@@ -1,9 +1,7 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { SimplePaletteColorOptions } from '@material-ui/core/styles/createPalette';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 
@@ -14,16 +12,23 @@ import MULImage from '../../images/MUL_Icon.jpg';
 
 type Props = {
   classes: Object,
-  title: String,
-  subtitle?: String,
-  className?: String,
+  title: string,
+  subtitle: string,
+  className: string,
 };
 
 class BrandingSection extends PureComponent<Props> {
+  static defaultProps = {
+    subtitle: null,
+    className: null,
+  };
+
   render() {
-    const { classes, title, subtitle, className } = this.props;
+    const {
+      classes, title, subtitle, className,
+    } = this.props;
     return (
-      <div className={classNames(classes.wrapper,className)} >
+      <div className={classNames(classes.wrapper, className)}>
         <img src={MULImage} className={classes.image} alt="library icon" />
         <div className={classes.textSection}>
           <Typography variant="display2" color="inherit">

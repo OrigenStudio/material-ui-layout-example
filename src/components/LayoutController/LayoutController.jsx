@@ -1,39 +1,30 @@
 // @flow
 
-import * as React from 'react';
 import Button from '@material-ui/core/Button';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import ExpandMoreIcon from '@material-ui/icons/Code';
+import Switch from '@material-ui/core/Switch';
+import * as React from 'react';
 import ControlSection from '../ControlSection';
-import SyntaxShow from '../SyntaxShow';
 
 type Props = {
-  appBarContentType: String,
-  leftDrawerType: String,
-  rightDrawerType: String,
+  appBarContentType: string,
+  leftDrawerType: string,
+  rightDrawerType: string,
   mainGrow: Boolean,
   stickyFooter: Boolean,
   leftDrawerOpen: Boolean,
   toggleLeftDrawer: Function,
-  onLeftDrawerOpenChange: Function,
   leftDrawerUnder: Function,
   toggleLeftDrawerUnder: Function,
   rightDrawerOpen: Boolean,
   toggleRightDrawer: Function,
-  onRightDrawerOpenChange: Function,
   rightDrawerUnder: Function,
   toggleRightDrawerUnder: Function,
   handleAppBarTypeChange: Function,
@@ -63,9 +54,7 @@ class LayoutController extends React.Component<Props> {
       toggleMainGrow,
       toggleStickyFooter,
       leftDrawerOpen,
-      onLeftDrawerOpenChange,
       rightDrawerOpen,
-      onRightDrawerOpenChange,
     } = this.props;
     return (
       <Grid container>
@@ -97,7 +86,7 @@ class LayoutController extends React.Component<Props> {
               variant="raised"
               onClick={toggleLeftDrawer}
               color="secondary"
-              disabled={leftDrawerType === 'permanent' ? true : false}
+              disabled={leftDrawerType === 'permanent'}
             >
               {leftDrawerOpen === true ? 'Close' : 'Open'}
             </Button>
@@ -140,7 +129,7 @@ class LayoutController extends React.Component<Props> {
               variant="raised"
               onClick={toggleRightDrawer}
               color="secondary"
-              disabled={rightDrawerType === 'permanent' ? true : false}
+              disabled={rightDrawerType === 'permanent'}
             >
               {rightDrawerOpen === true ? 'Close' : 'Open'}
             </Button>

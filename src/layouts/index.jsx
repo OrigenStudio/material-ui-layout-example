@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
@@ -13,12 +12,11 @@ import BasicLayout from '../components/Layouts/BasicLayout';
 type Props = {
   children: Function,
   data: Object,
-  classes: Object,
 };
 
 class MainLayout extends React.Component<Props> {
   render() {
-    const { children, data, classes } = this.props;
+    const { children, data } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
@@ -31,21 +29,17 @@ class MainLayout extends React.Component<Props> {
             },
             {
               name: 'keywords',
-              content:
-                'react, material design, layouts, material ui, web development, javascript',
+              content: 'react, material design, layouts, material ui, web development, javascript',
             },
           ]}
           link={[
             {
               rel: 'stylesheet',
-              href:
-                'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
+              href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
             },
           ]}
         />
-        <BasicLayout title={data.site.siteMetadata.title}>
-          {children()}
-        </BasicLayout>
+        <BasicLayout title={data.site.siteMetadata.title}>{children()}</BasicLayout>
       </MuiThemeProvider>
     );
   }

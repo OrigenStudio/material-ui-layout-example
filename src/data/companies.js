@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PiedPiper from '@fortawesome/fontawesome-free-brands/faPiedPiperAlt';
 import Hooli from '@fortawesome/fontawesome-free-brands/faHooli';

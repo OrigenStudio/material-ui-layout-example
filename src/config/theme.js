@@ -23,29 +23,28 @@ const palette = {
 const theme = createMuiTheme({ palette });
 
 // Further customize the outcome of the theme
-const coef = 0.1;
-const modifyRem = (value, coef) => {
-  return `${parseFloat(value) * (1 + coef)}rem`;
-};
+const weight = 0.1;
+const modifyRem = (value, factor) => `${parseFloat(value) * (1 + factor)}rem`;
 
+// eslint-disable-next-line consistent-return
 each(theme.typography, (variant, variantName) => {
   if (typeof variant !== 'object') {
     return variant;
   }
   theme.typography[variantName] = {
     ...variant,
-    fontSize: modifyRem(variant.fontSize, -coef * 3),
+    fontSize: modifyRem(variant.fontSize, -weight * 3),
     [theme.breakpoints.up('sm')]: {
-      fontSize: modifyRem(variant.fontSize, -coef * 2),
+      fontSize: modifyRem(variant.fontSize, -weight * 2),
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: modifyRem(variant.fontSize, -coef * 1),
+      fontSize: modifyRem(variant.fontSize, -weight * 1),
     },
     [theme.breakpoints.up('lg')]: {
       fontSize: modifyRem(variant.fontSize, 0),
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: modifyRem(variant.fontSize, coef),
+      fontSize: modifyRem(variant.fontSize, weight),
     },
   };
 });

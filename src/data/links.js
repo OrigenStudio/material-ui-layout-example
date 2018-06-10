@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import github from '@fortawesome/fontawesome-free-brands/faGithub';
 import withProps from 'recompose/withProps';
@@ -11,16 +10,16 @@ import { navigateTo } from 'gatsby-link';
 export default [
   {
     label: 'Getting Started',
-    onClick:() => navigateTo('/getting-started'),
+    onClick: () => navigateTo('/getting-started'),
     icon: DeveloperMode,
   },
   {
     label: 'Layout Controller Demo',
-    onClick:() => navigateTo('/layout-controller'),
+    onClick: () => navigateTo('/layout-controller'),
     icon: Devices,
   },
   {
-    href: 'https://github.com/OrigenStudio/material-ui-layout/tree/develop/src',
+    href: 'https://github.com/OrigenStudio/material-ui-layout',
     label: 'Code',
     icon: withProps({ icon: github, size: 'lg' })(FontAwesomeIcon),
   },

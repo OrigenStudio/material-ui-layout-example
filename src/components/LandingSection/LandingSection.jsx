@@ -11,10 +11,11 @@ import classNames from 'classnames';
 // TODO Use gatsby methods
 import MULImage from '../../images/MUL_Icon.jpg';
 import links from '../../data/links';
-const gettingStartedLink = links[0];
-const demoLink = links[1];
 
 import styles from './styles';
+
+const gettingStartedLink = links[0];
+const demoLink = links[1];
 
 type Props = {
   classes: Object,
@@ -42,11 +43,11 @@ class LandingSection extends React.Component<Props> {
         </div>
         <div className={classNames(classes.section, classes.githubSection)}>
           <Typography variant="subheading" color="inherit">
-            {`If you like don't forget to `}
+            {"If you like don't forget to "}
           </Typography>
           <div className={classes.githubButton}>
             <a
-              class="github-button"
+              className="github-button"
               href="https://github.com/OrigenStudio/material-ui-layout"
               data-size="large"
               data-show-count="true"
@@ -64,6 +65,8 @@ class LandingSection extends React.Component<Props> {
           </Typography>
           <div className={classes.buttonGroup}>
             <Button
+              href="https://material-ui.com/"
+              target="_blank"
               color="inherit"
               className={classNames(classes.button, classes.noTextDecoration)}
             >
@@ -72,14 +75,16 @@ class LandingSection extends React.Component<Props> {
               </Typography>
             </Button>
             <Typography variant="title" color="inherit">
-              {`&`}
+              {'&'}
             </Typography>
             <Button
+              target="_blank"
+              href="https://material.io/"
               color="inherit"
               className={classNames(classes.button, classes.noTextDecoration)}
             >
               <Typography variant="title" color="inherit">
-                Google's Material Design
+                {'Google\'s Material Design'}
               </Typography>
             </Button>
           </div>
