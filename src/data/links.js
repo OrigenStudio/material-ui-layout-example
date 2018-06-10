@@ -20,7 +20,7 @@ export default [
     icon: Devices,
   },
   {
-    href: 'https://github.com/OrigenStudio/material-ui-layout/tree/develop/src',
+    href: 'https://github.com/OrigenStudio/material-ui-layout',
     label: 'Code',
     icon: withProps({ icon: github, size: 'lg' })(FontAwesomeIcon),
   },
