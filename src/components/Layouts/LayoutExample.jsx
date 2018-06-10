@@ -18,6 +18,8 @@ import SyntaxShow from '../SyntaxShow';
 import styles from './styles';
 import RightDrawerContent from '../RightDrawerContent';
 import { navigateTo } from 'gatsby-link';
+import { GridList, GridListTile } from '@material-ui/core';
+import BrandingSection from '../BrandingSection';
 
 class LayoutExample extends React.Component {
   constructor(props) {
@@ -94,7 +96,7 @@ class LayoutExample extends React.Component {
   };
 
   render() {
-    const { classes, title } = this.props;
+    const { classes, title, version } = this.props;
     return (
       <Layout
         mainGrow={this.state.mainGrow === false ? false : true}
@@ -138,6 +140,7 @@ class LayoutExample extends React.Component {
         <div className={classes.wrapper}>
           <Grid container justify="center" alignContent="center">
             <Grid item xs={12} sm={11} md={9} lg={8}>
+              <BrandingSection title={title} subtitle={version} className={classes.section} />
               <ExpansionPanel defaultExpanded>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                   <Grid container>
@@ -180,7 +183,17 @@ class LayoutExample extends React.Component {
                   </Grid>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                  <SyntaxShow layoutConfig={this.state} />
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <Typography variant="body2">
+                        The code below changes according to the options selected
+                        above 🤓
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <SyntaxShow layoutConfig={this.state} />
+                    </Grid>
+                  </Grid>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
             </Grid>
@@ -192,13 +205,3 @@ class LayoutExample extends React.Component {
 }
 
 export default withStyles(styles)(LayoutExample);
-
-export const query = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;

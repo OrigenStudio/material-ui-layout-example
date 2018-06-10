@@ -6,7 +6,7 @@ import LayoutExample from '../components/Layouts/LayoutExample';
 const IndexPage = (props: { data: Object }) => (
   <LayoutExample
     title={props.data.site.siteMetadata.title}
-    version={props.data.site.siteMetadata.title}
+    version={props.data.site.siteMetadata.version}
   />
 );
 

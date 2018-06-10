@@ -9,7 +9,8 @@ export default (theme: Object): Object => ({
     background: theme.palette.gradients.primary,
     color: theme.palette.common.white,
     padding: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit * 3,
+    paddingTop: theme.spacing.unit * 6,
+    paddingBottom: theme.spacing.unit * 4,
   },
   appBar: {
     backgroundColor: theme.palette.background.appBar,
@@ -18,5 +19,9 @@ export default (theme: Object): Object => ({
   footer: {
     backgroundColor: theme.palette.background.footer,
     color: theme.palette.getContrastText(theme.palette.background.footer),
+  },
+  section: {
+    width: '100%',
+    paddingBottom: theme.spacing.unit * 4,
   },
 });
