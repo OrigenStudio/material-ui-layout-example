@@ -64,6 +64,8 @@ class LandingSection extends React.Component<Props> {
           </Typography>
           <div className={classes.buttonGroup}>
             <Button
+              href="https://material-ui.com/"
+              target="_blank"
               color="inherit"
               className={classNames(classes.button, classes.noTextDecoration)}
             >
@@ -75,6 +77,8 @@ class LandingSection extends React.Component<Props> {
               {`&`}
             </Typography>
             <Button
+              target="_blank"
+              href="https://material.io/"
               color="inherit"
               className={classNames(classes.button, classes.noTextDecoration)}
             >
