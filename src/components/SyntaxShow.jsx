@@ -1,87 +1,56 @@
+// @flow
+
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
-import { prism } from 'react-syntax-highlighter/styles/prism';
-import AppBarSimple from '../components/AppBarSimple';
-import AppBarDouble from '../components/AppBarDouble';
-import {
-  TwoRowsAppBar, BasicAppBar
-} from 'material-ui-layout';
+import { okaidia } from 'react-syntax-highlighter/styles/prism';
 
+type P = {
+  layoutConfig: Object,
+};
 
+class SyntaxShow extends React.PureComponent<P> {
+  render() {
+    const { layoutConfig } = this.props;
 
+    const appBarContent =
+      layoutConfig.appBarContentType === 'simple'
+        ? '<BasicAppBar {/* ... appBarContentProps */} />'
+        : '<TwoRowsAppBar {/* ...appBarContentProps */} />';
 
-const SyntaxShow = (props) => {
-  console.log("props",props);
-  const using2RowBar=props.gettingState.appBarContentType === "Simple" ? false : true;
-  const contentAppSimple=`
-    <AppBarSimple
-          title="Material-UI-Layout-Demo"
-          links={links}
-          toggleLeftDrawer={this.state.toggleLeftDrawer}
-          toggleRightDrawer={this.state.toggleRightDrawer}
-        />`;
-  const contentAppDouble=`<AppBarDouble
-          topLeftContent="left"
-          topCenterContent="center"
-          topRightContent="right"
-          bottomCenterContent="center"
-          toggleLeftDrawer={this.state.toggleLeftDrawer}
-          toggleRightDrawer={this.state.toggleRightDrawer}
-        />`;
-  const constStringBarDouble =
-  `
-  const AppBarDouble = ({ toggleLeftDrawer, toggleRightDrawer, topLeftContent, topCenterContent, topRightContent, bottomCenterContent  }) =>(
+    const mainBooleanProps = `${
+      layoutConfig.stickyFooter ? 'stickyFooter // default false' : ''
+    }${
+      layoutConfig.stickyFooter && layoutConfig.appBarContentType !== 'simple'
+        ? '\n \t \t  '
+        : ''
+    }${
+      layoutConfig.appBarContentType !== 'simple'
+        ? 'usingTwoRowAppBar // default false'
+        : ''
+    }`;
 
-        <TwoRowsAppBar
-          topLeftContent={topLeftContent}
-          topCenterContent={topCenterContent}
-          topRightContent={topRightContent}
-          bottomLeftContent={
-            <IconButton
-              onClick={toggleLeftDrawer}
-              color="contrast" aria-label="Delete">
-              <DeleteIcon />
-          </IconButton>}
-          bottomCenterContent={bottomCenterContent}
-          bottomRightContent={
-            <IconButton
-              onClick={toggleRightDrawer}
-              color="contrast" aria-label="Delete">
-              <DeleteIcon />
-          </IconButton>}
-        />
-      )
-  `
-  const constStringBarSimple =
-  `
-  const AppBarSimple = ({ toggleLeftDrawer, toggleRightDrawer, title, links, logo }) => (
+    const drawerBooleanProps = `${
+      layoutConfig.leftDrawerUnder ? 'leftDrawerUnder // default false' : ''
+    }${
+      layoutConfig.leftDrawerUnder && layoutConfig.rightDrawerUnder
+        ? '\n \t \t  '
+        : ''
+    }${
+      layoutConfig.rightDrawerUnder ? 'rightDrawerUnder // default false' : ''
+    }`;
 
-        <BasicAppBar
-          menuIconAlways={true}
-          title={title}
-          logo={logo}
-          links={links}
-          toggleLeftDrawer={toggleLeftDrawer}
-          toggleRightDrawer={toggleRightDrawer}
-          />
-        )
-
-  `
-  const whoBarType = props.gettingState.appBarContentType === "Simple" ? contentAppSimple : contentAppDouble;
-  const whoConstBar = props.gettingState.appBarContentType === "Simple" ? constStringBarSimple : constStringBarDouble;
-  const codeString =
-  `
+    const codeString = `
   import React from 'react';
   import Layout, {
+    ${layoutConfig.appBarContentType === 'simple' ? 'BasicAppBar' : 'TwoRowsAppBar'},
     BasicFooter,
-    TwoRowsAppBar,
     BasicDrawer,
-    BasicAppBar,
   } from 'material-ui-layout';
 
+  // Defined here for link format reference
   const links = [
     {
-      href: 'https://material-ui-next.com/',
+      href: 'https://material-ui.com/',
       label: 'Material-UI',
     },
     {
@@ -90,36 +59,53 @@ const SyntaxShow = (props) => {
     },
   ];
 
-  ${whoConstBar}
-  <Layout
-      mainGrow={${props.gettingState.mainGrow}}
-      stickyFooter={${props.gettingState.stickyFooter}}
-      usingTwoRowAppBar={${using2RowBar}}
-      appBarContent={${whoBarType}}
-      footerContent={
-      <BasicFooter
-        title="Material-UI-Layout-Demo"
-        smallMessage="Material-UI-Layout-Demo"
-        bigMessage="Demo"
-        links={links}
-      />}
-      leftDrawerContent={<BasicDrawer links={links} />}
-      leftDrawerType={${props.gettingState.leftDrawerType}}
-      leftDrawerOpen={${props.gettingState.leftDrawerOpen}}
-      onLeftDrawerOpenChange={this.setLeftDrawerState}
-      rightDrawerContent={<BasicDrawer links={links} />}
-      rightDrawerType={${props.gettingState.rightDrawerType}}
-      rightDrawerOpen={${props.gettingState.rightDrawerOpen}}
-      onRightDrawerOpenChange={this.setRightDrawerState}
+  class AppLayout extends React.Component {
+    render(){
+      const {children} = this.props;
+      return(
+        <Layout
+          ${mainBooleanProps}
+          ${layoutConfig.mainGrow ? 'mainGrow' : 'mainGrow={false}'} // default true
+          appBarPosition={"fixed"} //default value
+          appBarContent={${appBarContent}} // If no content it will render null
+          appBarProps={/* props to the AppBar wrapper component eg. color, className */}
+          
+          footerContent={<BasicFooter {/* footerContentProps */} /> } // If no content it will render null
+          footerProps={/* props to the Footer wrapper component eg. color, className */}
+          
+          ${drawerBooleanProps}
+          leftDrawerContent={<BasicDrawer links={links} />} // If no content it will render null
+          leftDrawerType="${layoutConfig.leftDrawerType}" // default temporary
+          rightDrawerContent={<BasicDrawer links={links} />} // If no content it will render null
+          rightDrawerType="${layoutConfig.rightDrawerType}" // default temporary
 
-    >
-     ***YOUR CONTENT***
-    </Layout>
-      );
+          // For state control the layout can either be controlled from the outside using e.g. Redux
+          // or internally managed. If it is not specified, then it will be self managed.
+          // If you want to control it externally you'll have to use this props.
+          // Check the docs for more details
+          leftDrawerOpen={/* Add here your left drawer state*/}
+          onLeftDrawerOpenChange={/* Add here you function to update the left drawer state*/}
+          rightDrawerOpen={/* Add here your right drawer state*/}
+          onRightDrawerOpenChange={/* Add here you function to update the right drawer state*/}
+          >
+          // Inside the children you can have components that use the LayoutActions.Consumer to have access to
+          // layout state modifiers
+            {children}
+          </Layout>
+        )
+      }
     }
-  }`
-;
-  return <SyntaxHighlighter language='javascript' style={prism}>{codeString}</SyntaxHighlighter>;
+  }
+
+  export default AppLayout;
+  `;
+
+    return (
+      <SyntaxHighlighter language="jsx" style={okaidia} showLineNumbers>
+        {codeString}
+      </SyntaxHighlighter>
+    );
+  }
 }
 
 export default SyntaxShow;
