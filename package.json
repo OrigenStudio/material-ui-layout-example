@@ -24,18 +24,18 @@
     "react-syntax-highlighter": "^7.0.4",
     "recompose": "^0.27.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test": "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
+    "test":
+      "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
     "flow": "flow",
-    "eslint": "./node_modules/.bin/eslint src/",
-    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
+    "eslint": "./node_modules/.bin/eslint src/ --ext js,jsx",
+    "deploy-staging":
+      "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
