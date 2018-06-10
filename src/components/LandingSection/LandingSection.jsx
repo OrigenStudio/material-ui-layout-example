@@ -46,7 +46,7 @@ class LandingSection extends React.Component<Props> {
           </Typography>
           <div className={classes.githubButton}>
             <a
-              class="github-button"
+              className="github-button"
               href="https://github.com/OrigenStudio/material-ui-layout"
               data-size="large"
               data-show-count="true"
