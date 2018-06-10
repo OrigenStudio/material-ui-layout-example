@@ -2,9 +2,16 @@
 
 import React from 'react';
 import GettingStartedSection from '../components/GettingStartedSection';
+import Helmet from 'react-helmet';
 
 const IndexPage = (props: { data: Object }) => (
-  <GettingStartedSection title={props.data.site.siteMetadata.title} version={props.data.site.siteMetadata.version} />
+  <div>
+    <Helmet title="Easy peasy 🍋 squeezy" />
+    <GettingStartedSection
+      title={props.data.site.siteMetadata.title}
+      version={props.data.site.siteMetadata.version}
+    />
+  </div>
 );
 
 export default IndexPage;
