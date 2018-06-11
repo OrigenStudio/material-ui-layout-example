@@ -1,26 +1,20 @@
-# gatsby-starter-default
-The default Gatsby starter.
+<p align="center">
+<img src="https://user-images.githubusercontent.com/6626225/40393625-8a675f3c-5e20-11e8-99b2-db016e8e2db3.png" width="230"/>
+</p>
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+<h1 align="center">Material-UI-Layout</h1>
 
-## Install
+## Example page for the material-ui-layout package.
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
-```
+The original package can be found here: https://github.com/OrigenStudio/material-ui-layout
 
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
+Install it: `npm i material-ui-layout`
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
+## Contribute
 
-## Deploy
+This example page is based on GatsbyJS so make sure its CLI is installed.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+1. Clone this repo
+2. `npm i`
+3. Contribute
+
