@@ -6,7 +6,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Material UI Layout',
         short_name: 'MUL',
@@ -18,7 +18,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: 'gatsby-plugin-favicon',
       options: {
         logo: './src/images/MUL_Icon.jpg',
         injectHTML: true,
@@ -35,6 +35,27 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-120164020-2',
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: [],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-hotjar',
+      options: {
+        id: 911645,
+        sv: 6,
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };
