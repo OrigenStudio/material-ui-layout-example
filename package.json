@@ -13,6 +13,8 @@
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-favicon": "^2.1.1",
+    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-plugin-hotjar": "^1.0.1",
     "gatsby-plugin-manifest": "^1.0.25",
     "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.10",
@@ -24,18 +26,18 @@
     "react-syntax-highlighter": "^7.0.4",
     "recompose": "^0.27.1"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "test":
-      "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
+    "test": "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
     "flow": "flow",
     "eslint": "./node_modules/.bin/eslint src/ --ext js,jsx",
-    "deploy-staging":
-      "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
+    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
