@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { okaidia } from 'react-syntax-highlighter/styles/prism';
+import Helmet from 'react-helmet';
 import BrandingSection from '../BrandingSection';
 
 import styles from './styles';
@@ -24,6 +25,7 @@ class GettingStartedSection extends React.PureComponent<Props> {
     const { classes, title, version } = this.props;
     return (
       <div className={classes.wrapper}>
+        <Helmet title="Easy peasy 🍋 squeezy" />
         <BrandingSection title={title} subtitle={version} />
         <Typography variant="headline" className={classes.section} color="inherit">
           1. Install
@@ -63,7 +65,9 @@ class GettingStartedSection extends React.PureComponent<Props> {
             </SyntaxHighlighter>
           </div>
           <Typography variant="caption" color="inherit">
-            {'*this example is really simple... don\'t worry it has a lot of options to customize it and control it'}
+            {
+              "*this example is really simple... don't worry it has a lot of options to customize it and control it"
+            }
           </Typography>
         </div>
         <Typography variant="headline" className={classes.section} color="inherit">
