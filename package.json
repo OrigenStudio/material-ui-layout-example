@@ -37,7 +37,8 @@
     "test": "npm run eslint && npm run flow && gatsby build && echo \"Eslint && Flow && Build passed - No jest yet\"",
     "flow": "flow",
     "eslint": "./node_modules/.bin/eslint src/ --ext js,jsx",
-    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh"
+    "deploy-staging": "gatsby build && surge --project public --domain material-ui-layout-staging.surge.sh",
+    "deploy-production": "gatsby build && surge --project public --domain material-ui-layout.origen.studio"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
