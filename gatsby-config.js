@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Material UI Layout',
-    version: 'v0.1.0-rc.6',
+    version: 'v0.1.0-rc.7',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

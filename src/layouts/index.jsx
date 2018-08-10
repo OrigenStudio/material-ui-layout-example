@@ -38,7 +38,14 @@ class MainLayout extends React.Component<Props> {
               href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
             },
           ]}
-        />
+        >
+          <noscript>
+            {`
+              <h1>Javascript is required to visualize this web page</h1>
+              <a href="https://github.com/OrigenStudio/material-ui-layout">Material-UI-Layout Package</a>
+            `}
+          </noscript>
+        </Helmet>
         <BasicLayout title={data.site.siteMetadata.title}>{children()}</BasicLayout>
       </MuiThemeProvider>
     );
