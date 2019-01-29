@@ -1,14 +1,14 @@
 {
   "name": "material-ui-layout-example",
   "description": "Example and documentation page for material ui layout",
-  "version": "0.1.0-rc.7",
+  "version": "0.1.0-rc.9-beta",
   "author": "Origen Studio <hello@origen.studio>",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "@fortawesome/react-fontawesome": "0.0.20",
-    "@material-ui/core": "^1.1.0",
-    "@material-ui/icons": "^1.1.0",
+    "@material-ui/core": "^3.9.1",
+    "@material-ui/icons": "^3.0.2",
     "classnames": "^2.2.6",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
