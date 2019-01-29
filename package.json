@@ -1,7 +1,7 @@
 {
   "name": "material-ui-layout-example",
   "description": "Example and documentation page for material ui layout",
-  "version": "0.1.0-rc.9-beta",
+  "version": "1.0.0",
   "author": "Origen Studio <hello@origen.studio>",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -19,7 +19,7 @@
     "gatsby-plugin-offline": "^1.0.18",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "lodash": "^4.17.10",
-    "material-ui-layout": "0.1.0-rc.7",
+    "material-ui-layout": "1.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-helmet": "^5.2.0",
