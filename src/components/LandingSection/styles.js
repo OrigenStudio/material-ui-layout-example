@@ -2,9 +2,9 @@
 
 export default (theme: Object): Object => ({
   wrapper: {
-    padding: theme.spacing.unit * 2,
-    paddingTop: theme.spacing.unit * 6,
-    paddingBottom: theme.spacing.unit * 6,
+    padding: theme.spacing(2),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -17,13 +17,13 @@ export default (theme: Object): Object => ({
   },
   section: {
     width: '100%',
-    marginBottom: theme.spacing.unit * 4,
+    marginBottom: theme.spacing(4),
     textAlign: 'center',
   },
   code: {
     width: 'auto',
     maxWidth: '100%',
-    marginBottom: theme.spacing.unit * 4,
+    marginBottom: theme.spacing(4),
   },
   githubSection: {
     display: 'flex',
@@ -31,14 +31,14 @@ export default (theme: Object): Object => ({
     alignItems: 'center',
   },
   githubButton: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing(),
   },
   buttonGroup: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: { margin: theme.spacing.unit },
+  button: { margin: theme.spacing() },
   noTextDecoration: { textTransform: 'none' },
-  buttonIcon: { marginRight: theme.spacing.unit },
+  buttonIcon: { marginRight: theme.spacing() },
 });

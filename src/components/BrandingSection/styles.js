@@ -11,7 +11,7 @@ export default (theme: Object): Object => ({
     width: '30%',
     maxWidth: '200px',
     height: 'auto',
-    marginRight: theme.spacing.unit * 2,
+    marginRight: theme.spacing(2),
   },
   textSection: {
     textAlign: 'left',

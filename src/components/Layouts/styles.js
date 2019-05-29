@@ -8,9 +8,9 @@ export default (theme: Object): Object => ({
     width: '100%',
     background: theme.palette.gradients.primary,
     color: theme.palette.common.white,
-    padding: theme.spacing.unit,
-    paddingTop: theme.spacing.unit * 6,
-    paddingBottom: theme.spacing.unit * 4,
+    padding: theme.spacing(),
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(4),
   },
   appBar: {
     backgroundColor: theme.palette.background.appBar,
@@ -22,6 +22,6 @@ export default (theme: Object): Object => ({
   },
   section: {
     width: '100%',
-    paddingBottom: theme.spacing.unit * 4,
+    paddingBottom: theme.spacing(4),
   },
 });

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
 import theme from '../config/theme';
 
@@ -18,7 +18,7 @@ class MainLayout extends React.Component<Props> {
   render() {
     const { children, data } = this.props;
     return (
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Helmet
           title={data.site.siteMetadata.title}
@@ -47,7 +47,7 @@ class MainLayout extends React.Component<Props> {
           </noscript>
         </Helmet>
         <BasicLayout title={data.site.siteMetadata.title}>{children()}</BasicLayout>
-      </MuiThemeProvider>
+      </ThemeProvider>
     );
   }
 }

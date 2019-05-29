@@ -18,7 +18,7 @@ class Footer extends React.PureComponent<Props> {
         container
         alignItems="flex-end"
         justify="space-around"
-        spacing={16}
+        spacing={2}
         className={this.props.classes.wrapper}
       >
         <Grid item xs={12} md={4} className={this.props.classes.text}>
