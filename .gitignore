@@ -6,3 +6,7 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
+
+# Yalc for local package testiong
+.yalc/
+yalc.lock
